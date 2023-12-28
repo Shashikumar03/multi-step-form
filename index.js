@@ -143,12 +143,11 @@ function nextPage(e) {
     const toggleSwitchCol = document.getElementsByClassName("toggle-child");
     toggleSwitchCol[0].style.color = "var(--cool-gray)";
     toggleSwitchCol[2].style.color = "var(--marine-blue)";
+
+    //  toggle effect is applied
     const toggleSwitch = document.getElementById("flexSwitchCheckDefault");
     toggleSwitch.addEventListener("change", function () {
-      // Get the value of the toggle switch (true if checked, false if not checked)
       const switchValue = this.checked;
-
-      // Log the value to the console (you can do whatever you need with the value)
       console.log("Toggle Switch Value:", switchValue);
 
       toggleSwitchCol[0].style.color = "var(--cool-gray)";

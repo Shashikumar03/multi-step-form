@@ -142,14 +142,18 @@ footer {
 .pro {
   border: 1px solid var(--light-gray);
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   padding-left: 1rem;
   border-radius: 0.5rem;
+  /* border: 2px solid red; */
 }
 .arcade-pic,
 .advanced-pic,
 .pro-pic {
   /* border: 2px solid red; */
+  display: flex;
+  align-items: flex-start;
+  padding-top: 0.7rem;
 }
 
 .arcade-text,
@@ -158,7 +162,7 @@ footer {
   /* border: 2px solid red; */
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
+  justify-content: flex-start;
   /* align-items: center; */
   padding: 0.7rem;
   padding-left: 1rem;
