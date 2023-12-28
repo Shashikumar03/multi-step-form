@@ -172,7 +172,7 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 2.8rem;
+  min-height: 2.9rem;
   background-color: var(--light-gray);
   gap: 1.5rem;
   border-radius: 0.3rem;
