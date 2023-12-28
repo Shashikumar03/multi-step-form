@@ -148,7 +148,8 @@ footer {
   flex-direction: column;
   /* justify-content: center; */
   /* align-items: center; */
-  padding: 1rem;
+  padding: 0.5rem;
+  padding-left: 1rem;
 }
 .arcade-text > p,
 .advanced-text > p,
@@ -159,10 +160,10 @@ footer {
 }
 .text-bold {
   font-weight: bold;
-  font-size: 1.1;
+  font-size: 1rem;
 }
 .text-smaller {
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: var(--cool-gray);
 }
 /* toggle button */
@@ -175,6 +176,7 @@ footer {
   background-color: var(--light-gray);
   gap: 1.5rem;
   border-radius: 0.3rem;
+  margin-top: 1.3rem;
 }
 .yearly,
 .monthly {

@@ -9,7 +9,7 @@ function nextPage(e) {
   nextButton.id = buttonId.toString();
   if (buttonId == 2) {
     const mainFormDiv = document.getElementById("main-form-div");
-    mainFormDiv.style.paddingBottom = "1.2rem";
+    mainFormDiv.style.paddingBottom = "1.4rem";
     const infoDiv = document.getElementById("info");
     infoDiv.children[0].textContent = "Select your plan";
     infoDiv.children[1].textContent =
