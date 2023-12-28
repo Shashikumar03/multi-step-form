@@ -8,8 +8,16 @@ function nextPage(e) {
   console.log(buttonId);
   buttonId += 1;
   nextButton.id = buttonId.toString();
+  const box1 = document.getElementById("box-1");
+  box1.style.backgroundColor = "transparent";
+  box1.style.color = "var(--white)";
+  box1.style.fontWeight = "none";
   if (buttonId == 2) {
-    console.log("shashi");
+    const box2 = document.getElementById("box-2");
+    box2.style.backgroundColor = "var(--light-blue)";
+    box2.style.color = "var(--marine-blue";
+    box2.style.fontWeight = "bold";
+
     const mainFormDiv = document.getElementById("main-form-div");
     mainFormDiv.style.paddingBottom = "1.4rem";
     const infoDiv = document.getElementById("info");
@@ -161,16 +169,19 @@ function nextPage(e) {
         const monthFreeArcade = document.createElement("p");
         monthFreeArcade.id = "month-arcade";
         monthFreeArcade.textContent = "2 months free";
+        monthFreeArcade.style.color = "var(--marine-blue)";
         subscription[0].children[1].textContent = "$90/yr";
 
         const monthFreeAdvanced = document.createElement("p");
         monthFreeAdvanced.id = "month-advanced";
+        monthFreeAdvanced.style.color = "var(--marine-blue)";
         monthFreeAdvanced.textContent = "2 months free";
         subscription[1].children[1].textContent = "$120/yr";
 
         const monthFreePro = document.createElement("p");
         monthFreePro.id = "month-pro";
         monthFreePro.textContent = "2 months free";
+        monthFreePro.style.color = "var(--marine-blue)";
         subscription[2].children[1].textContent = "$150/yr";
 
         // if (firstTime) {
@@ -196,6 +207,11 @@ function nextPage(e) {
     });
   }
 }
+
+const box1 = document.getElementById("box-1");
+box1.style.backgroundColor = "var(--light-blue)";
+box1.style.color = "var(--marine-blue";
+box1.style.fontWeight = "bold";
 
 const formDiv = document.createElement("div");
 formDiv.className = "form-div";
