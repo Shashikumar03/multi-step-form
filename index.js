@@ -3,11 +3,13 @@ let nextButton = document.getElementById("1");
 nextButton.addEventListener("click", nextPage);
 
 function nextPage(e) {
+  let firstTime = true;
   let buttonId = parseInt(e.target.id);
   console.log(buttonId);
   buttonId += 1;
   nextButton.id = buttonId.toString();
   if (buttonId == 2) {
+    console.log("shashi");
     const mainFormDiv = document.getElementById("main-form-div");
     mainFormDiv.style.paddingBottom = "1.4rem";
     const infoDiv = document.getElementById("info");
@@ -32,7 +34,7 @@ function nextPage(e) {
     arcadePicDiv.appendChild(arcadeImg);
 
     const arcadeText = document.createElement("div");
-    arcadeText.className = "arcade-text";
+    arcadeText.className = "arcade-text subscription";
 
     let upperBoldText = document.createElement("p");
     upperBoldText.textContent = "Arcade";
@@ -59,7 +61,7 @@ function nextPage(e) {
     advancedPicDiv.appendChild(advancedImg);
 
     const advancedText = document.createElement("div");
-    advancedText.className = "advanced-text";
+    advancedText.className = "advanced-text subscription";
 
     upperBoldText = document.createElement("p");
     upperBoldText.className = "text-bold";
@@ -86,7 +88,7 @@ function nextPage(e) {
     proPicDiv.appendChild(proImg);
 
     const proText = document.createElement("div");
-    proText.className = "pro-text";
+    proText.className = "pro-text subscription";
 
     upperBoldText = document.createElement("p");
     upperBoldText.className = "text-bold";
@@ -136,8 +138,63 @@ function nextPage(e) {
     const formStep2 = document.querySelector("form");
     console.log(formStep2);
     formStep2.appendChild(toggleDiv);
-  } else {
-    console.log("next");
+
+    // if toggle swith is pressed or not;
+    const toggleSwitchCol = document.getElementsByClassName("toggle-child");
+    toggleSwitchCol[0].style.color = "var(--cool-gray)";
+    toggleSwitchCol[2].style.color = "var(--marine-blue)";
+    const toggleSwitch = document.getElementById("flexSwitchCheckDefault");
+    toggleSwitch.addEventListener("change", function () {
+      // Get the value of the toggle switch (true if checked, false if not checked)
+      const switchValue = this.checked;
+
+      // Log the value to the console (you can do whatever you need with the value)
+      console.log("Toggle Switch Value:", switchValue);
+
+      toggleSwitchCol[0].style.color = "var(--cool-gray)";
+      toggleSwitchCol[2].style.color = "var(--marine-blue)";
+
+      if (switchValue) {
+        toggleSwitchCol[0].style.color = "var(--marine-blue)";
+        toggleSwitchCol[2].style.color = "var(--cool-gray)";
+        const subscription = document.getElementsByClassName("subscription");
+
+        const monthFreeArcade = document.createElement("p");
+        monthFreeArcade.id = "month-arcade";
+        monthFreeArcade.textContent = "2 months free";
+        subscription[0].children[1].textContent = "$90/yr";
+
+        const monthFreeAdvanced = document.createElement("p");
+        monthFreeAdvanced.id = "month-advanced";
+        monthFreeAdvanced.textContent = "2 months free";
+        subscription[1].children[1].textContent = "$120/yr";
+
+        const monthFreePro = document.createElement("p");
+        monthFreePro.id = "month-pro";
+        monthFreePro.textContent = "2 months free";
+        subscription[2].children[1].textContent = "$150/yr";
+
+        // if (firstTime) {
+        subscription[1].appendChild(monthFreeAdvanced);
+        subscription[0].appendChild(monthFreeArcade);
+        subscription[2].appendChild(monthFreePro);
+        firstTime = false;
+        // }
+      } else {
+        const subscription = document.getElementsByClassName("subscription");
+        if (document.getElementById("month-arcade")) {
+          subscription[0].removeChild(document.getElementById("month-arcade"));
+        }
+        if (document.getElementById("month-advanced")) {
+          subscription[1].removeChild(
+            document.getElementById("month-advanced")
+          );
+        }
+        if (document.getElementById("month-pro")) {
+          subscription[2].removeChild(document.getElementById("month-pro"));
+        }
+      }
+    });
   }
 }
 
