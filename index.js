@@ -11,6 +11,8 @@ function nextPage(e) {
   box1.style.backgroundColor = "transparent";
   box1.style.color = "var(--white)";
   box1.style.fontWeight = "none";
+  nextButton.style.color = "var(--alabaster)";
+  nextButton.style.backgroundColor = "var(--marine-blue)";
   if (buttonId == 2) {
     const box2 = document.getElementById("box-2");
     box2.style.backgroundColor = "var(--light-blue)";
@@ -204,6 +206,7 @@ function nextPage(e) {
     });
   } else if (buttonId === 3) {
     console.log(switchValue);
+
     const mainFormDiv = document.getElementById("main-form-div");
     mainFormDiv.style.paddingBottom = "7rem";
     console.log("nhi btaunga");
@@ -288,6 +291,10 @@ function nextPage(e) {
       yearlyCharge[2].textContent = "$20/yr";
     }
   } else if (buttonId === 4) {
+    console.log("bbb", nextButton);
+    nextButton.textContent = "Confirm";
+    nextButton.style.color = "var(--alabaster)";
+    nextButton.style.backgroundColor = "var(--purplish-blue)";
     console.log("buttonId :", buttonId);
     const box3 = document.getElementById("box-3");
     box3.style.backgroundColor = "transparent";
@@ -312,7 +319,7 @@ function nextPage(e) {
     const upperLeft = document.createElement("div");
     upperLeft.className = "upper-left";
     const upperRight = document.createElement("div");
-    upperRight.className = "upper-right";
+    upperRight.className = "upper-right price";
 
     // upperLeft;
     const leftUpperText = document.createElement("p");
@@ -345,7 +352,7 @@ function nextPage(e) {
     lowerLeftText.textContent = "Online service";
 
     const lowerRightText = document.createElement("p");
-    lowerRightText.className = "lower-right-text";
+    lowerRightText.className = "lower-right-text price";
     lowerRightText.textContent = "+$1/mo";
     lowerFirstDiv.append(lowerLeftText, lowerRightText);
 
@@ -355,7 +362,7 @@ function nextPage(e) {
     lowerSecLeftText.textContent = "Larger storage";
 
     const lowerSecRightText = document.createElement("p");
-    lowerSecRightText.className = "lower-right-text";
+    lowerSecRightText.className = "lower-right-text price";
     lowerSecRightText.textContent = "+$2/mo";
     lowerSecondDiv.append(lowerSecLeftText, lowerSecRightText);
 
@@ -371,7 +378,7 @@ function nextPage(e) {
     totalSumText.className = "total-sum-text";
     totalSumText.textContent = "Total (per month)";
     const totalSum = document.createElement("p");
-    totalSum.className = "total-sum";
+    totalSum.className = "total-sum price";
     totalSum.textContent = "+$12/mo";
 
     // Appending the elements to build the structure
@@ -379,6 +386,14 @@ function nextPage(e) {
 
     totalBillingDiv.appendChild(totalBillDiv);
     formDiv.appendChild(totalBillingDiv);
+    if (switchValue) {
+      const priceHtmlCol = document.getElementsByClassName("price");
+      console.log(priceHtmlCol);
+      priceHtmlCol[0].children[0].textContent = "$90/yr";
+      priceHtmlCol[1].textContent = "$10/yr";
+      priceHtmlCol[2].textContent = "$20/yr";
+      priceHtmlCol[3].textContent = "$120/yr";
+    }
   }
 }
 
