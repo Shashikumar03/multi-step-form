@@ -1,11 +1,133 @@
+const box1 = document.getElementById("box-1");
+box1.style.backgroundColor = "var(--light-blue)";
+box1.style.color = "var(--marine-blue";
+box1.style.fontWeight = "bold";
+
+const formDiv = document.createElement("div");
+formDiv.className = "form-div";
+const infoDiv = document.createElement("div");
+infoDiv.className = "info";
+infoDiv.id = "info";
+const infoH2 = document.createElement("h2");
+const infoParagraph = document.createElement("p");
+infoH2.textContent = "Personal info";
+infoParagraph.textContent =
+  "Please provide your name, email address, and phone number.";
+
+infoDiv.append(infoH2, infoParagraph);
+
+// form portion
+let form = document.createElement("form");
+// name input
+const divName = document.createElement("div");
+divName.className = "mb-3";
+//   creating label for class input name
+const labelNameElement = document.createElement("label");
+labelNameElement.setAttribute("for", "inputName");
+labelNameElement.setAttribute("class", "form-label label");
+labelNameElement.textContent = "Name";
+// Create input element for name
+const inputNameElement = document.createElement("input");
+inputNameElement.setAttribute("type", "text");
+inputNameElement.setAttribute("class", "form-control");
+inputNameElement.setAttribute("id", "inputName");
+inputNameElement.setAttribute("placeholder", "e.g. Stephen King");
+divName.append(labelNameElement, inputNameElement);
+form.appendChild(divName);
+
+// email input
+const emailDiv = document.createElement("div");
+emailDiv.className = "mb-3";
+// Create label element
+const labelEmailElement = document.createElement("label");
+labelEmailElement.setAttribute("for", "inputEmail");
+labelEmailElement.setAttribute("class", "form-label label");
+labelEmailElement.textContent = "Email Address";
+// Create input element
+const inputEmailElement = document.createElement("input");
+inputEmailElement.setAttribute("type", "email");
+inputEmailElement.setAttribute("class", "form-control");
+inputEmailElement.setAttribute("id", "inputEmail");
+inputEmailElement.setAttribute("placeholder", "e.g. stephenking@lorem.com");
+emailDiv.append(labelEmailElement, inputEmailElement);
+form.appendChild(emailDiv);
+
+//  phone potion is staring
+const phoneDiv = document.createElement("div");
+phoneDiv.className = "mb-3";
+// Create label phone
+const labelPhoneElement = document.createElement("label");
+labelPhoneElement.setAttribute("for", "inputNumber");
+labelPhoneElement.setAttribute("class", "form-label label");
+labelPhoneElement.textContent = "Phone Number";
+
+// creating input  for phone number
+const inputPhoneElement = document.createElement("input");
+inputPhoneElement.setAttribute("type", "number");
+inputPhoneElement.setAttribute("class", "form-control");
+inputPhoneElement.setAttribute("id", "inputNumber");
+inputPhoneElement.setAttribute("placeholder", "e.g. +1 234 567 890");
+
+phoneDiv.append(labelPhoneElement, inputPhoneElement);
+form.appendChild(phoneDiv);
+formDiv.append(infoDiv, form);
+console.log(form);
+const parentDiv = document.getElementById("main-form-div");
+
+parentDiv.appendChild(formDiv);
+// form.addEventListener("input", formSubmit);
+// function formSubmit(e) {
+//   const inputName = document.getElementById("inputName").value;
+//   const inputEmail = document.getElementById("inputEmail").value;
+//   const inputPhone = document.getElementById("inputNumber").value;
+// }
+
+/////////////////////////////event is applied//////////////////////////
+
 let nextButton = document.getElementById("1");
-// console.log(nextButton.id);
-nextButton.addEventListener("click", nextPage);
+let formDataObj = {};
+nextButton.addEventListener("click", nevigatePage);
+const backButton = document.getElementById("decrement-1");
+backButton.style.visibility = "hidden";
+
+backButton.addEventListener("click", nevigatePage);
+console.log(backButton);
 let switchValue = false;
-function nextPage(e) {
-  let buttonId = parseInt(e.target.id);
-  console.log(buttonId);
-  buttonId += 1;
+
+let resolveForm;
+const confimBtn = document.getElementById("confirm");
+confimBtn.style.display = "none";
+
+function nevigatePage(e) {
+  let buttonId;
+  if (e.target === backButton) {
+    buttonId = parseInt(e.target.value);
+    buttonId -= 1;
+  } else {
+    buttonId = parseInt(e.target.id);
+    buttonId += 1;
+  }
+  console.log("button id", buttonId);
+
+  backButton.value = buttonId;
+  if (buttonId === 4) {
+    confimBtn.style.display = "block";
+    nextButton.style.display = "none";
+
+    confimBtn.textContent = "Confirm";
+    confimBtn.style.color = "var(--alabaster)";
+    confimBtn.style.backgroundColor = "var(--purplish-blue)";
+  } else {
+    nextButton.style.display = "block";
+    confimBtn.style.display = "none";
+  }
+
+  if (buttonId > 1 && buttonId < 5) {
+    backButton.style.visibility = "visible";
+  } else {
+    backButton.style.visibility = "hidden";
+  }
+
   nextButton.id = buttonId.toString();
   const box1 = document.getElementById("box-1");
   box1.style.backgroundColor = "transparent";
@@ -205,8 +327,16 @@ function nextPage(e) {
       }
     });
   } else if (buttonId === 3) {
-    console.log(switchValue);
+    if (e.target === backButton) {
+      console.log(formDataObj["form"], "yahi hai");
 
+      const aaa = document.getElementsByClassName("form-div");
+      const parentDiv = aaa[0].parentNode;
+      parentDiv.innerHTML = "";
+      console.log(parentDiv, "parentDiv");
+      parentDiv.appendChild(formDataObj["form"]);
+      return;
+    }
     const mainFormDiv = document.getElementById("main-form-div");
     mainFormDiv.style.paddingBottom = "7rem";
     console.log("nhi btaunga");
@@ -225,12 +355,15 @@ function nextPage(e) {
       "Add-ons help enhance your gaming experience.";
 
     const formTree = document.getElementsByClassName("mb-3");
-    formTree[0].innerHTML = "";
-    formTree[1].innerHTML = "";
-    formTree[2].innerHTML = "";
+    if (formTree[0]) {
+      formTree[0].innerHTML = "";
+      formTree[1].innerHTML = "";
+      formTree[2].innerHTML = "";
+      const parentDiv = formTree[0].parentNode;
+      parentDiv.removeChild(parentDiv.children[3]);
+    }
     // const toggleSwitchDiv = document.getElementsByClassName("toggle-div");
-    const parentDiv = formTree[0].parentNode;
-    parentDiv.removeChild(parentDiv.children[3]);
+
     //   <div class="form-check">
     // <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
     // <label class="form-check-label" for="flexCheckChecked">
@@ -279,23 +412,25 @@ function nextPage(e) {
       step3TextDiv.append(step3BoldText, step3SmallText);
       formCheckFirstChild.append(checkboxDiv, step3TextDiv, monthyChargeDiv);
       formCheck.appendChild(formCheckFirstChild);
-      formTree[i].appendChild(formCheck);
+      if (formTree[i]) formTree[i].appendChild(formCheck);
       // formTree[1].innerHTML = "";
       // formTree[2].innerHTML = "";
     }
-    console.log(formTree[0]);
+
     if (switchValue) {
       const yearlyCharge = document.getElementsByClassName("monthly-charge");
       yearlyCharge[0].textContent = "$10/yr";
       yearlyCharge[1].textContent = "$20/yr";
       yearlyCharge[2].textContent = "$20/yr";
     }
+    const aaa = document.getElementsByClassName("form-div");
+    console.log("aaaa", aaa[0]);
+    if (e.target === nextButton) {
+      formDataObj["form"] = aaa[0].cloneNode(true);
+      console.log(formDataObj["form"]);
+      console.log("form is stored");
+    }
   } else if (buttonId === 4) {
-    console.log("bbb", nextButton);
-    nextButton.textContent = "Confirm";
-    nextButton.style.color = "var(--alabaster)";
-    nextButton.style.backgroundColor = "var(--purplish-blue)";
-    console.log("buttonId :", buttonId);
     const box3 = document.getElementById("box-3");
     box3.style.backgroundColor = "transparent";
     box3.style.color = "var(--white)";
@@ -394,89 +529,86 @@ function nextPage(e) {
       priceHtmlCol[2].textContent = "$20/yr";
       priceHtmlCol[3].textContent = "$120/yr";
     }
+    console.log("step4", formDataObj["form"]);
+  } else if (buttonId === 1) {
+    const parentDiv1 = document.getElementById("main-form-div");
+    parentDiv1.innerHTML = "";
+    const box1 = document.getElementById("box-1");
+    box1.style.backgroundColor = "var(--light-blue)";
+    box1.style.color = "var(--marine-blue";
+    box1.style.fontWeight = "bold";
+
+    const formDiv = document.createElement("div");
+    formDiv.className = "form-div";
+    const infoDiv = document.createElement("div");
+    infoDiv.className = "info";
+    infoDiv.id = "info";
+    const infoH2 = document.createElement("h2");
+    const infoParagraph = document.createElement("p");
+    infoH2.textContent = "Personal info";
+    infoParagraph.textContent =
+      "Please provide your name, email address, and phone number.";
+
+    infoDiv.append(infoH2, infoParagraph);
+
+    // form portion
+    form = document.createElement("form");
+    // name input
+    const divName = document.createElement("div");
+    divName.className = "mb-3";
+    //   creating label for class input name
+    const labelNameElement = document.createElement("label");
+    labelNameElement.setAttribute("for", "inputName");
+    labelNameElement.setAttribute("class", "form-label label");
+    labelNameElement.textContent = "Name";
+    // Create input element for name
+    const inputNameElement = document.createElement("input");
+    inputNameElement.setAttribute("type", "text");
+    inputNameElement.setAttribute("class", "form-control");
+    inputNameElement.setAttribute("id", "inputName");
+    inputNameElement.setAttribute("placeholder", "e.g. Stephen King");
+    divName.append(labelNameElement, inputNameElement);
+    form.appendChild(divName);
+
+    // email input
+    const emailDiv = document.createElement("div");
+    emailDiv.className = "mb-3";
+    // Create label element
+    const labelEmailElement = document.createElement("label");
+    labelEmailElement.setAttribute("for", "inputEmail");
+    labelEmailElement.setAttribute("class", "form-label label");
+    labelEmailElement.textContent = "Email Address";
+    // Create input element
+    const inputEmailElement = document.createElement("input");
+    inputEmailElement.setAttribute("type", "email");
+    inputEmailElement.setAttribute("class", "form-control");
+    inputEmailElement.setAttribute("id", "inputEmail");
+    inputEmailElement.setAttribute("placeholder", "e.g. stephenking@lorem.com");
+    emailDiv.append(labelEmailElement, inputEmailElement);
+    form.appendChild(emailDiv);
+
+    //  phone potion is staring
+    const phoneDiv = document.createElement("div");
+    phoneDiv.className = "mb-3";
+    // Create label phone
+    const labelPhoneElement = document.createElement("label");
+    labelPhoneElement.setAttribute("for", "inputNumber");
+    labelPhoneElement.setAttribute("class", "form-label label");
+    labelPhoneElement.textContent = "Phone Number";
+
+    // creating input  for phone number
+    const inputPhoneElement = document.createElement("input");
+    inputPhoneElement.setAttribute("type", "number");
+    inputPhoneElement.setAttribute("class", "form-control");
+    inputPhoneElement.setAttribute("id", "inputNumber");
+    inputPhoneElement.setAttribute("placeholder", "e.g. +1 234 567 890");
+
+    phoneDiv.append(labelPhoneElement, inputPhoneElement);
+    form.appendChild(phoneDiv);
+    formDiv.append(infoDiv, form);
+    console.log(form);
+    const parentDiv = document.getElementById("main-form-div");
+
+    parentDiv.appendChild(formDiv);
   }
 }
-
-const box1 = document.getElementById("box-1");
-box1.style.backgroundColor = "var(--light-blue)";
-box1.style.color = "var(--marine-blue";
-box1.style.fontWeight = "bold";
-
-const formDiv = document.createElement("div");
-formDiv.className = "form-div";
-const infoDiv = document.createElement("div");
-infoDiv.className = "info";
-infoDiv.id = "info";
-const infoH2 = document.createElement("h2");
-const infoParagraph = document.createElement("p");
-infoH2.textContent = "Personal info";
-infoParagraph.textContent =
-  "Please provide your name, email address, and phone number.";
-
-infoDiv.append(infoH2, infoParagraph);
-
-// form portion
-const form = document.createElement("form");
-// name input
-const divName = document.createElement("div");
-divName.className = "mb-3";
-//   creating label for class input name
-const labelNameElement = document.createElement("label");
-labelNameElement.setAttribute("for", "inputName");
-labelNameElement.setAttribute("class", "form-label label");
-labelNameElement.textContent = "Name";
-// Create input element for name
-const inputNameElement = document.createElement("input");
-inputNameElement.setAttribute("type", "text");
-inputNameElement.setAttribute("class", "form-control");
-inputNameElement.setAttribute("id", "inputName");
-inputNameElement.setAttribute("placeholder", "e.g. Stephen King");
-divName.append(labelNameElement, inputNameElement);
-form.appendChild(divName);
-
-// email input
-const emailDiv = document.createElement("div");
-emailDiv.className = "mb-3";
-// Create label element
-const labelEmailElement = document.createElement("label");
-labelEmailElement.setAttribute("for", "inputEmail");
-labelEmailElement.setAttribute("class", "form-label label");
-labelEmailElement.textContent = "Email Address";
-// Create input element
-const inputEmailElement = document.createElement("input");
-inputEmailElement.setAttribute("type", "email");
-inputEmailElement.setAttribute("class", "form-control");
-inputEmailElement.setAttribute("id", "inputEmail");
-inputEmailElement.setAttribute("placeholder", "e.g. stephenking@lorem.com");
-emailDiv.append(labelEmailElement, inputEmailElement);
-form.appendChild(emailDiv);
-
-//  phone potion is staring
-const phoneDiv = document.createElement("div");
-phoneDiv.className = "mb-3";
-// Create label phone
-const labelPhoneElement = document.createElement("label");
-labelPhoneElement.setAttribute("for", "inputNumber");
-labelPhoneElement.setAttribute("class", "form-label label");
-labelPhoneElement.textContent = "Phone Number";
-
-// creating input  for phone number
-const inputPhoneElement = document.createElement("input");
-inputPhoneElement.setAttribute("type", "number");
-inputPhoneElement.setAttribute("class", "form-control");
-inputPhoneElement.setAttribute("id", "inputNumber");
-inputPhoneElement.setAttribute("placeholder", "e.g. +1 234 567 890");
-
-phoneDiv.append(labelPhoneElement, inputPhoneElement);
-form.appendChild(phoneDiv);
-formDiv.append(infoDiv, form);
-console.log(form);
-const parentDiv = document.getElementById("main-form-div");
-
-parentDiv.appendChild(formDiv);
-// form.addEventListener("input", formSubmit);
-// function formSubmit(e) {
-//   const inputName = document.getElementById("inputName").value;
-//   const inputEmail = document.getElementById("inputEmail").value;
-//   const inputPhone = document.getElementById("inputNumber").value;
-// }

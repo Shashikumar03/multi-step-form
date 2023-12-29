@@ -341,3 +341,12 @@ footer {
   font-size: 1rem;
   color: var(--purplish-blue);
 }
+
+/* Go back button */
+#decrement-1 {
+  border: 2px solid red;
+  border: none;
+  background-color: transparent;
+  color: var(--cool-gray);
+  font-weight: bold;
+}
