@@ -261,3 +261,83 @@ footer {
 .checkbox-div > input {
   width: 100%;
 }
+
+/* Step4 */
+.billing-monthly {
+  /* border: 2px solid red; */
+  background-color: var(--light-gray);
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.billing-upper {
+  /* border: 2px solid blue; */
+  display: flex;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+}
+.upper-left > p {
+  margin: 0;
+  padding: 0;
+}
+.upper-bold-text,
+.lower-right-text,
+.total-sum {
+  color: var(--marine-blue);
+  font-weight: bold;
+}
+.lower-right-text,
+.total-sum {
+  font-size: 0.95rem;
+}
+.upper-small-text,
+.lower-left-text,
+.total-sum-text {
+  font-size: 0.95rem;
+  color: var(--cool-gray);
+}
+
+.upper-right > p {
+  /* border: 2px solid red; */
+  margin: 0;
+  padding: 0;
+  color: var(--marine-blue);
+  font-weight: bold;
+}
+
+.billing-lower {
+  /* border: 2px solid red; */
+}
+.lower-first {
+  /* border: 2px solid blue; */
+  display: flex;
+  justify-content: space-between;
+}
+
+.lower-second {
+  /* border: 2px solid rgb(18, 17, 17); */
+  display: flex;
+  justify-content: space-between;
+}
+
+/* total billing */
+.total-bill-div {
+  /* border: 2px solid red; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  padding: 1rem;
+}
+.total-bill-div > p {
+  padding: 0;
+  margin: 0;
+}
+.total-sum-text {
+  font-size: 1rem;
+}
+.total-sum {
+  font-size: 1rem;
+  color: var(--purplish-blue);
+}

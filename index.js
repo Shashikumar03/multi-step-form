@@ -302,7 +302,7 @@ function nextPage(e) {
     const infoDiv = document.getElementById("info");
     infoDiv.children[0].textContent = "Finishing up";
     infoDiv.children[1].textContent =
-      "Finishing up Double-check everything looks OK before confirming.";
+      "Double-check everything looks OK before confirming.";
     let formDiv = infoDiv.parentNode.children[1];
     formDiv.innerHTML = "";
     const billMonthly = document.createElement("div");
@@ -311,10 +311,25 @@ function nextPage(e) {
     billingUpper.className = "billing-upper";
     const upperLeft = document.createElement("div");
     upperLeft.className = "upper-left";
-    const upperright = document.createElement("div");
-    upperright.className = "upper-right";
+    const upperRight = document.createElement("div");
+    upperRight.className = "upper-right";
 
-    billingUpper.append(upperLeft, upperright);
+    // upperLeft;
+    const leftUpperText = document.createElement("p");
+    leftUpperText.className = "upper-bold-text";
+    leftUpperText.textContent = "Arcade (Monthly)";
+    const leftLowerText = document.createElement("p");
+    leftLowerText.className = "upper-small-text";
+    leftLowerText.innerHTML = "<u>Change<u/>";
+    upperLeft.append(leftUpperText, leftLowerText);
+
+    // upperRight;
+    const upperRightText = document.createElement("p");
+    upperRightText.className = "uppert-right-text";
+    upperRightText.textContent = "$9/mo";
+    upperRight.appendChild(upperRightText);
+
+    billingUpper.append(upperLeft, upperRight);
     const hr = document.createElement("hr");
     hr.className = "hr";
 
@@ -324,9 +339,46 @@ function nextPage(e) {
     lowerFirstDiv.className = "lower-first";
     const lowerSecondDiv = document.createElement("div");
     lowerSecondDiv.className = "lower-second";
+    // lowerFirstDiv
+    const lowerLeftText = document.createElement("p");
+    lowerLeftText.className = "lower-left-text";
+    lowerLeftText.textContent = "Online service";
+
+    const lowerRightText = document.createElement("p");
+    lowerRightText.className = "lower-right-text";
+    lowerRightText.textContent = "+$1/mo";
+    lowerFirstDiv.append(lowerLeftText, lowerRightText);
+
+    // lowerSecondDiv
+    const lowerSecLeftText = document.createElement("p");
+    lowerSecLeftText.className = "lower-left-text";
+    lowerSecLeftText.textContent = "Larger storage";
+
+    const lowerSecRightText = document.createElement("p");
+    lowerSecRightText.className = "lower-right-text";
+    lowerSecRightText.textContent = "+$2/mo";
+    lowerSecondDiv.append(lowerSecLeftText, lowerSecRightText);
+
     billingLower.append(lowerFirstDiv, lowerSecondDiv);
-    formDiv.append(billingUpper, billingLower);
+    billMonthly.append(billingUpper, hr, billingLower);
+    formDiv.appendChild(billMonthly);
     console.log(formDiv);
+    const totalBillingDiv = document.createElement("div");
+    totalBillingDiv.className = "total-billing";
+    const totalBillDiv = document.createElement("div");
+    totalBillDiv.className = "total-bill-div";
+    const totalSumText = document.createElement("p");
+    totalSumText.className = "total-sum-text";
+    totalSumText.textContent = "Total (per month)";
+    const totalSum = document.createElement("p");
+    totalSum.className = "total-sum";
+    totalSum.textContent = "+$12/mo";
+
+    // Appending the elements to build the structure
+    totalBillDiv.append(totalSumText, totalSum);
+
+    totalBillingDiv.appendChild(totalBillDiv);
+    formDiv.appendChild(totalBillingDiv);
   }
 }
 
