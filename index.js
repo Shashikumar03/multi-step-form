@@ -1,9 +1,8 @@
 let nextButton = document.getElementById("1");
 // console.log(nextButton.id);
 nextButton.addEventListener("click", nextPage);
-
+let switchValue = false;
 function nextPage(e) {
-  let firstTime = true;
   let buttonId = parseInt(e.target.id);
   console.log(buttonId);
   buttonId += 1;
@@ -153,7 +152,7 @@ function nextPage(e) {
     //  toggle effect is applied
     const toggleSwitch = document.getElementById("flexSwitchCheckDefault");
     toggleSwitch.addEventListener("change", function () {
-      const switchValue = this.checked;
+      switchValue = this.checked;
       console.log("Toggle Switch Value:", switchValue);
 
       toggleSwitchCol[0].style.color = "var(--cool-gray)";
@@ -203,8 +202,8 @@ function nextPage(e) {
         }
       }
     });
-  }
-  if (buttonId === 3) {
+  } else if (buttonId === 3) {
+    console.log(switchValue);
     const mainFormDiv = document.getElementById("main-form-div");
     mainFormDiv.style.paddingBottom = "7rem";
     console.log("nhi btaunga");
@@ -282,6 +281,23 @@ function nextPage(e) {
       // formTree[2].innerHTML = "";
     }
     console.log(formTree[0]);
+    if (switchValue) {
+      const yearlyCharge = document.getElementsByClassName("monthly-charge");
+      yearlyCharge[0].textContent = "$10/yr";
+      yearlyCharge[1].textContent = "$20/yr";
+      yearlyCharge[2].textContent = "$20/yr";
+    }
+  } else if (buttonId === 4) {
+    console.log("buttonId :", buttonId);
+    const box3 = document.getElementById("box-3");
+    box3.style.backgroundColor = "transparent";
+    box3.style.color = "var(--white)";
+    box3.style.fontWeight = "none";
+
+    const box4 = document.getElementById("box-4");
+    box4.style.backgroundColor = "var(--light-blue)";
+    box4.style.color = "var(--marine-blue";
+    box4.style.fontWeight = "bold";
   }
 }
 
