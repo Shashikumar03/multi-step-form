@@ -206,7 +206,7 @@ function nextPage(e) {
   }
   if (buttonId === 3) {
     const mainFormDiv = document.getElementById("main-form-div");
-    mainFormDiv.style.paddingBottom = "6rem";
+    mainFormDiv.style.paddingBottom = "7rem";
     console.log("nhi btaunga");
     const box2 = document.getElementById("box-2");
     box2.style.backgroundColor = "transparent";
