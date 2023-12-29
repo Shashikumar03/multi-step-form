@@ -141,10 +141,8 @@ function nextPage(e) {
     toggleDiv.children[0].textContent = "Monthly";
     toggleDiv.children[1].appendChild(togglerButtonDiv);
     toggleDiv.children[2].textContent = "Yearly";
-    console.log(toggleDiv);
-    console.log("togleDiv");
+
     const formStep2 = document.querySelector("form");
-    console.log(formStep2);
     formStep2.appendChild(toggleDiv);
 
     // if toggle swith is pressed or not;
@@ -188,7 +186,7 @@ function nextPage(e) {
         subscription[1].appendChild(monthFreeAdvanced);
         subscription[0].appendChild(monthFreeArcade);
         subscription[2].appendChild(monthFreePro);
-        firstTime = false;
+
         // }
       } else {
         const subscription = document.getElementsByClassName("subscription");
@@ -205,6 +203,85 @@ function nextPage(e) {
         }
       }
     });
+  }
+  if (buttonId === 3) {
+    const mainFormDiv = document.getElementById("main-form-div");
+    mainFormDiv.style.paddingBottom = "7rem";
+    console.log("nhi btaunga");
+    const box2 = document.getElementById("box-2");
+    box2.style.backgroundColor = "transparent";
+    box2.style.color = "var(--white)";
+    box2.style.fontWeight = "none";
+
+    const box3 = document.getElementById("box-3");
+    box3.style.backgroundColor = "var(--light-blue)";
+    box3.style.color = "var(--marine-blue)";
+    box3.style.fontWeight = "bold";
+    const infoDiv = document.getElementById("info");
+    infoDiv.children[0].textContent = " Pick add-ons";
+    infoDiv.children[1].textContent =
+      "Add-ons help enhance your gaming experience.";
+
+    const formTree = document.getElementsByClassName("mb-3");
+    formTree[0].innerHTML = "";
+    formTree[1].innerHTML = "";
+    formTree[2].innerHTML = "";
+    // const toggleSwitchDiv = document.getElementsByClassName("toggle-div");
+    const parentDiv = formTree[0].parentNode;
+    parentDiv.removeChild(parentDiv.children[3]);
+    //   <div class="form-check">
+    // <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+    // <label class="form-check-label" for="flexCheckChecked">
+    //   Checked checkbox
+    // </label>
+    // </div>
+    for (let i = 0; i < 3; i++) {
+      const formCheck = document.createElement("div");
+      formCheck.className = "form-check1 checkbox";
+      const formCheckFirstChild = document.createElement("div");
+      formCheckFirstChild.className = "checkbox-1-child";
+      const inputCheck = document.createElement("input");
+      inputCheck.className = "form-check"; // -input
+      inputCheck.type = "checkbox";
+      inputCheck.checked = "true";
+      const checkboxDiv = document.createElement("div");
+      checkboxDiv.className = "checkbox-div";
+      checkboxDiv.appendChild(inputCheck);
+
+      const step3TextDiv = document.createElement("div");
+      step3TextDiv.className = "step3-text";
+      const step3BoldText = document.createElement("p");
+      const step3SmallText = document.createElement("p");
+      step3BoldText.className = "step3-bold-text text-bold";
+      step3SmallText.className = "step3-small-text text-smaller ";
+
+      const monthyChargeDiv = document.createElement("div");
+      monthyChargeDiv.className = "monthly-charge";
+      if (i == 0) {
+        inputCheck.id = "checkbox-1";
+        step3BoldText.textContent = "Online service";
+        step3SmallText.textContent = "Access to multiplayer games";
+        monthyChargeDiv.textContent = "+$1/mo ";
+      } else if (i == 1) {
+        inputCheck.id = "checkbox-2";
+
+        step3BoldText.textContent = "Large storage";
+        step3SmallText.textContent = "Extra 1TB of cloud save";
+        monthyChargeDiv.textContent = "+$2/mo ";
+      } else {
+        inputCheck.id = "checkbox-3";
+        step3BoldText.textContent = "Customizable profile";
+        step3SmallText.textContent = "Custom theme on your profile";
+        monthyChargeDiv.textContent = "+$3/mo ";
+      }
+      step3TextDiv.append(step3BoldText, step3SmallText);
+      formCheckFirstChild.append(checkboxDiv, step3TextDiv, monthyChargeDiv);
+      formCheck.appendChild(formCheckFirstChild);
+      formTree[i].appendChild(formCheck);
+      // formTree[1].innerHTML = "";
+      // formTree[2].innerHTML = "";
+    }
+    console.log(formTree[0]);
   }
 }
 
@@ -282,9 +359,9 @@ phoneDiv.append(labelPhoneElement, inputPhoneElement);
 form.appendChild(phoneDiv);
 formDiv.append(infoDiv, form);
 console.log(form);
-const a = document.getElementById("main-form-div");
-console.log(a);
-a.appendChild(formDiv);
+const parentDiv = document.getElementById("main-form-div");
+
+parentDiv.appendChild(formDiv);
 // form.addEventListener("input", formSubmit);
 // function formSubmit(e) {
 //   const inputName = document.getElementById("inputName").value;

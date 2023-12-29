@@ -195,7 +195,69 @@ footer {
   border-radius: 0.3rem;
   margin-top: 1.3rem;
 }
+.form-check-input {
+  /* border: 2px solid red; */
+}
 .yearly,
 .monthly {
   color: var(--cool-gray);
+}
+.monthly {
+  /* border: 2px solid red; */
+}
+
+/* step-3 */
+
+.checkbox {
+  width: 100%;
+  /* border: 2px solid red; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form-check {
+  /* padding-left: 0.1rem; */
+}
+.checkbox-1-child {
+  width: 100%;
+  border: 1px solid var(--light-gray);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem;
+  border-radius: 0.5rem;
+  gap: 0.5rem;
+}
+
+.step3-text {
+  /* border: 2px solid red; */
+  width: 100%;
+  /* margin-left: 0.2rem; */
+}
+
+.step3-bold-text {
+  font-size: 1rem;
+  margin: 0;
+  padding: 0;
+}
+.step3-small-text {
+  font-size: 0.85rem;
+  margin: 0;
+  width: 100%;
+}
+.monthly-charge {
+  /* border: 2px solid red; */
+  font-size: 0.95rem;
+  color: var(--purplish-blue);
+  margin-left: -0.5rem;
+  /* padding-left: rem; */
+}
+.checkbox-div {
+  /* border: 2px solid red; */
+  width: 10%;
+  border-radius: 0.3rem;
+}
+
+.checkbox-div > input {
+  width: 100%;
 }
