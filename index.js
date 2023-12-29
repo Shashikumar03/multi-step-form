@@ -298,6 +298,35 @@ function nextPage(e) {
     box4.style.backgroundColor = "var(--light-blue)";
     box4.style.color = "var(--marine-blue";
     box4.style.fontWeight = "bold";
+
+    const infoDiv = document.getElementById("info");
+    infoDiv.children[0].textContent = "Finishing up";
+    infoDiv.children[1].textContent =
+      "Finishing up Double-check everything looks OK before confirming.";
+    let formDiv = infoDiv.parentNode.children[1];
+    formDiv.innerHTML = "";
+    const billMonthly = document.createElement("div");
+    billMonthly.className = "billing-monthly";
+    const billingUpper = document.createElement("div");
+    billingUpper.className = "billing-upper";
+    const upperLeft = document.createElement("div");
+    upperLeft.className = "upper-left";
+    const upperright = document.createElement("div");
+    upperright.className = "upper-right";
+
+    billingUpper.append(upperLeft, upperright);
+    const hr = document.createElement("hr");
+    hr.className = "hr";
+
+    const billingLower = document.createElement("div");
+    billingLower.className = "billing-lower";
+    const lowerFirstDiv = document.createElement("div");
+    lowerFirstDiv.className = "lower-first";
+    const lowerSecondDiv = document.createElement("div");
+    lowerSecondDiv.className = "lower-second";
+    billingLower.append(lowerFirstDiv, lowerSecondDiv);
+    formDiv.append(billingUpper, billingLower);
+    console.log(formDiv);
   }
 }
 
