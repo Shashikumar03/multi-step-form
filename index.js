@@ -345,6 +345,13 @@ function nevigatePage(e) {
           subscription[2].removeChild(document.getElementById("month-pro"));
           subscription[2].children[1].textContent = "$15/mo";
         }
+        if (planData.length > 0) {
+          const searchId = Object.keys(planData[0])[0].toLowerCase();
+          const DeColorDiv = document.getElementById(`${searchId}-id`);
+          planData.length = 0;
+          DeColorDiv.style.border = "1px solid var(--light-gray)";
+          DeColorDiv.style.backgroundColor = "transparent";
+        }
       }
     });
     const aaa = document.querySelector("form");
