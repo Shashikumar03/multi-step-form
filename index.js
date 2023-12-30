@@ -362,6 +362,7 @@ function nevigatePage(e) {
       console.log("form is stored");
     }
     if (e.target === backButton) {
+      data = {};
       const toggleSwitch = document.getElementById("flexSwitchCheckDefault");
       if (toggleSwitch && switchValue) {
         toggleSwitch.checked = true;
@@ -665,12 +666,12 @@ function nevigatePage(e) {
           let checkboxThird = document.getElementById("checkbox-3");
           if (checkboxThird) checkboxThird.checked = true;
         }
-        const selectAddOn = document.getElementById(idOfAddOn);
+        const selectAddOn = document.getElementById(idOfAddOn).children[0];
+        console.log(selectAddOn, "yyyyyyyyyyyyyyyyyyyyyyyy");
         if (selectAddOn) {
           selectAddOn.style.border = "1px solid var(--purplish-blue)";
           selectAddOn.style.backgroundColor = "var(--pastel-blue)";
         }
-        data = {};
       }
     }
     // console.log(addedPlanKey);
