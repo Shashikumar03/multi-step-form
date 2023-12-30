@@ -146,18 +146,9 @@ function nevigatePage(e) {
 
   nextButton.id = buttonId.toString();
 
-  // const box1 = document.getElementById("box-1");
-  // box1.style.backgroundColor = "transparent";
-  // box1.style.color = "var(--white)";
-  // box1.style.fontWeight = "none";
   nextButton.style.color = "var(--alabaster)";
   nextButton.style.backgroundColor = "var(--marine-blue)";
   if (buttonId == 2) {
-    // const box2 = document.getElementById("box-2");
-    // box2.style.backgroundColor = "var(--light-blue)";
-    // box2.style.color = "var(--marine-blue";
-    // box2.style.fontWeight = "bold";
-
     const mainFormDiv = document.getElementById("main-form-div");
     mainFormDiv.style.paddingBottom = "1.4rem";
     const infoDiv = document.getElementById("info");
@@ -300,6 +291,15 @@ function nevigatePage(e) {
       toggleSwitchCol[2].style.color = "var(--marine-blue)";
 
       if (switchValue) {
+        if (planData.length > 0) {
+          const searchId = Object.keys(planData[0])[0].toLowerCase();
+          const DeColorDiv = document.getElementById(`${searchId}-id`);
+
+          planData.length = 0;
+          DeColorDiv.style.border = "1px solid var(--light-gray)";
+          DeColorDiv.style.backgroundColor = "transparent";
+        }
+
         toggleSwitchCol[0].style.color = "var(--marine-blue)";
         toggleSwitchCol[2].style.color = "var(--cool-gray)";
         const subscription = document.getElementsByClassName("subscription");
@@ -354,13 +354,64 @@ function nevigatePage(e) {
       console.log(formDataObj["form"]);
       console.log("form is stored");
     }
+    if (e.target === backButton) {
+      const toggleSwitch = document.getElementById("flexSwitchCheckDefault");
+      if (toggleSwitch && switchValue) {
+        toggleSwitch.checked = true;
+        const contentDiv = document.getElementsByClassName("content-div")[0];
+        if (contentDiv) {
+          contentDiv.addEventListener("click", selectPlan);
+
+          const selectYearPlan =
+            Object.keys(planData[0])[0].toLowerCase() + "-id";
+
+          toggleSwitchCol[0].style.color = "var(--marine-blue)";
+          toggleSwitchCol[2].style.color = "var(--cool-gray)";
+          const subscription = document.getElementsByClassName("subscription");
+
+          const monthFreeArcade = document.createElement("p");
+          monthFreeArcade.id = "month-arcade";
+          monthFreeArcade.textContent = "2 months free";
+          monthFreeArcade.style.color = "var(--marine-blue)";
+          subscription[0].children[1].textContent = "$90/yr";
+
+          const monthFreeAdvanced = document.createElement("p");
+          monthFreeAdvanced.id = "month-advanced";
+          monthFreeAdvanced.style.color = "var(--marine-blue)";
+          monthFreeAdvanced.textContent = "2 months free";
+          subscription[1].children[1].textContent = "$120/yr";
+
+          const monthFreePro = document.createElement("p");
+          monthFreePro.id = "month-pro";
+          monthFreePro.textContent = "2 months free";
+          monthFreePro.style.color = "var(--marine-blue)";
+          subscription[2].children[1].textContent = "$150/yr";
+
+          // if (firstTime) {
+          subscription[1].appendChild(monthFreeAdvanced);
+          subscription[0].appendChild(monthFreeArcade);
+          subscription[2].appendChild(monthFreePro);
+
+          const selectSubcription = document.getElementById(selectYearPlan);
+          selectSubcription.style.border = "1px solid var(--purplish-blue)";
+          selectSubcription.style.backgroundColor = "var(--pastel-blue)";
+        }
+      } else {
+        const selectMonthPlan =
+          Object.keys(planData[0])[0].toLowerCase() + "-id";
+        console.log(selectMonthPlan);
+        const monthItemPlan = document.getElementById(selectMonthPlan);
+        monthItemPlan.style.border = "1px solid var(--purplish-blue)";
+        monthItemPlan.style.backgroundColor = "var(--pastel-blue)";
+      }
+    }
   } else if (buttonId === 3) {
     if (e.target === backButton) {
       // console.log(formDataObj["form"], "yahi hai");
       const formQ = document.querySelector("form");
       formQ.innerHTML = "";
       console.log(formDataObj["form"].children);
-  
+
       const contentDiv1 = document.createElement("div");
       contentDiv1.className = "content-div";
       for (let i = 0; i < 3; i++) {
@@ -370,12 +421,11 @@ function nevigatePage(e) {
       }
       formQ.appendChild(contentDiv1);
 
-     
       const contentDiv = document.getElementsByClassName("content-div")[0];
       if (contentDiv) {
         contentDiv.addEventListener("click", selectPlan);
       }
-    
+
       const nhi = document.getElementById("main-form-div");
       console.log(nhi);
     }
