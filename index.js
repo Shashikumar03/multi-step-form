@@ -725,21 +725,44 @@ document.addEventListener("DOMContentLoaded", function () {
           checkboxSecond.checked,
           checkboxThird.checked
         );
+        const selectedBox1 = checkboxFirst.parentNode.parentNode;
+        const selectedBox2 = checkboxSecond.parentNode.parentNode;
+        const selectedBox3 = checkboxThird.parentNode.parentNode;
+
         if (checkboxFirst.checked) {
           const value1 = checkboxFirst.value;
-          console.log(value1);
+
           let obj = {};
           data["Online service"] = value1;
+          selectedBox1.style.border = "1px solid var(--purplish-blue)";
+          selectedBox1.style.backgroundColor = "var(--pastel-blue)";
+        } else {
+          selectedBox1.style.border = "1px solid var(--light-gray)";
+          selectedBox1.style.backgroundColor = "transparent";
+          delete data["Online service"];
         }
+
         if (checkboxSecond.checked) {
           const value2 = checkboxSecond.value;
           console.log(value2);
           let obj = {};
           data["Large storage"] = value2;
+          selectedBox2.style.border = "1px solid var(--purplish-blue)";
+          selectedBox2.style.backgroundColor = "var(--pastel-blue)";
+        } else {
+          selectedBox2.style.border = "1px solid var(--light-gray)";
+          selectedBox2.style.backgroundColor = "transparent";
+          delete data["Large storage"];
         }
         if (checkboxThird.checked) {
           const value3 = checkboxThird.value;
           data["Customizable profile"] = value3;
+          selectedBox3.style.border = "1px solid var(--purplish-blue)";
+          selectedBox3.style.backgroundColor = "var(--pastel-blue)";
+        } else {
+          selectedBox3.style.border = "1px solid var(--light-gray)";
+          selectedBox3.style.backgroundColor = "transparent";
+          delete data["Customizable profile"];
         }
       }
     }
