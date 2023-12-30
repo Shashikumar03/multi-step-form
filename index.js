@@ -654,7 +654,9 @@ document.addEventListener("DOMContentLoaded", function () {
     // const inputPhone = document.getElementById("inputNumber").value;
     // console.log(inputName, inputEmail, inputPhone);
   }
-
+  let arcade = 0;
+  let avdance = 0;
+  let pro = 0;
   function selectPlan(e) {
     buttonValue = backButton.value;
     console.log(buttonValue);
@@ -666,10 +668,51 @@ document.addEventListener("DOMContentLoaded", function () {
 
       if (buttonValue == 2) {
         if (planSelection.children.length > 0) {
+          const selectedPlanDiv = planSelection.parentNode;
+
           const planName = planSelection.children[0].textContent;
-          let planObj = {};
-          planObj[planName] = planSelection.children[1].textContent;
-          planData.push(planObj);
+          console.log(planName);
+          if (planName === "Arcade") {
+            if (arcade % 2 == 0) {
+              selectedPlanDiv.style.border = "1px solid var(--purplish-blue)";
+              selectedPlanDiv.style.backgroundColor = "var(--pastel-blue)";
+              let planObj = {};
+              planObj[planName] = planSelection.children[1].textContent;
+              planData.push(planObj);
+            } else {
+              selectedPlanDiv.style.border = "1px solid var(--light-gray)";
+              selectedPlanDiv.style.backgroundColor = "transparent";
+              planData.shift();
+            }
+            arcade++;
+          } else if (planName === "Advanced") {
+            if (avdance % 2 == 0) {
+              selectedPlanDiv.style.border = "1px solid var(--purplish-blue)";
+              selectedPlanDiv.style.backgroundColor = "var(--pastel-blue)";
+              let planObj = {};
+              planObj[planName] = planSelection.children[1].textContent;
+              planData.push(planObj);
+            } else {
+              selectedPlanDiv.style.border = "1px solid var(--light-gray)";
+              selectedPlanDiv.style.backgroundColor = "transparent";
+              planData.shift();
+            }
+            avdance++;
+          } else if (planName === "Pro") {
+            console.log(planName, "checkplane name");
+            if (pro % 2 == 0) {
+              selectedPlanDiv.style.border = "1px solid var(--purplish-blue)";
+              selectedPlanDiv.style.backgroundColor = "var(--pastel-blue)";
+              let planObj = {};
+              planObj[planName] = planSelection.children[1].textContent;
+              planData.push(planObj);
+            } else {
+              selectedPlanDiv.style.border = "1px solid var(--light-gray)";
+              selectedPlanDiv.style.backgroundColor = "transparent";
+              planData.shift();
+            }
+            pro++;
+          }
         }
       } else {
         const aa = document.querySelectorAll(".form-check");
