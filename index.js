@@ -1,83 +1,86 @@
-const box1 = document.getElementById("box-1");
-box1.style.backgroundColor = "var(--light-blue)";
-box1.style.color = "var(--marine-blue)";
-box1.style.fontWeight = "bold";
+function step1() {
+  const box1 = document.getElementById("box-1");
+  box1.style.backgroundColor = "var(--light-blue)";
+  box1.style.color = "var(--marine-blue)";
+  box1.style.fontWeight = "bold";
 
-const formDiv = document.createElement("div");
-formDiv.className = "form-div";
-const infoDiv = document.createElement("div");
-infoDiv.className = "info";
-infoDiv.id = "info";
-const infoH2 = document.createElement("h2");
-const infoParagraph = document.createElement("p");
-infoH2.textContent = "Personal info";
-infoParagraph.textContent =
-  "Please provide your name, email address, and phone number.";
+  const formDiv = document.createElement("div");
+  formDiv.className = "form-div";
+  const infoDiv = document.createElement("div");
+  infoDiv.className = "info";
+  infoDiv.id = "info";
+  const infoH2 = document.createElement("h2");
+  const infoParagraph = document.createElement("p");
+  infoH2.textContent = "Personal info";
+  infoParagraph.textContent =
+    "Please provide your name, email address, and phone number.";
 
-infoDiv.append(infoH2, infoParagraph);
+  infoDiv.append(infoH2, infoParagraph);
 
-// form portion
-let form = document.createElement("form");
-let contentDiv = document.createElement("div");
-contentDiv.className = "content-div";
-// name input
-const divName = document.createElement("div");
-divName.className = "mb-3";
-//   creating label for class input name
-const labelNameElement = document.createElement("label");
-labelNameElement.setAttribute("for", "inputName");
-labelNameElement.setAttribute("class", "form-label label");
-labelNameElement.textContent = "Name";
-// Create input element for name
-const inputNameElement = document.createElement("input");
-inputNameElement.setAttribute("type", "text");
-inputNameElement.setAttribute("class", "form-control");
-inputNameElement.setAttribute("id", "inputName");
-inputNameElement.setAttribute("placeholder", "e.g. Stephen King");
-divName.append(labelNameElement, inputNameElement);
-contentDiv.appendChild(divName);
+  // form portion
+  let form = document.createElement("form");
+  let contentDiv = document.createElement("div");
+  contentDiv.className = "content-div";
+  // name input
+  const divName = document.createElement("div");
+  divName.className = "mb-3";
+  //   creating label for class input name
+  const labelNameElement = document.createElement("label");
+  labelNameElement.setAttribute("for", "inputName");
+  labelNameElement.setAttribute("class", "form-label label");
+  labelNameElement.textContent = "Name";
+  // Create input element for name
+  const inputNameElement = document.createElement("input");
+  inputNameElement.setAttribute("type", "text");
+  inputNameElement.setAttribute("class", "form-control");
+  inputNameElement.setAttribute("id", "inputName");
+  inputNameElement.setAttribute("placeholder", "e.g. Stephen King");
+  divName.append(labelNameElement, inputNameElement);
+  contentDiv.appendChild(divName);
 
-// email input
-const emailDiv = document.createElement("div");
-emailDiv.className = "mb-3";
-// Create label element
-const labelEmailElement = document.createElement("label");
-labelEmailElement.setAttribute("for", "inputEmail");
-labelEmailElement.setAttribute("class", "form-label label");
-labelEmailElement.textContent = "Email Address";
-// Create input element
-const inputEmailElement = document.createElement("input");
-inputEmailElement.setAttribute("type", "email");
-inputEmailElement.setAttribute("class", "form-control");
-inputEmailElement.setAttribute("id", "inputEmail");
-inputEmailElement.setAttribute("placeholder", "e.g. stephenking@lorem.com");
-emailDiv.append(labelEmailElement, inputEmailElement);
-contentDiv.appendChild(emailDiv);
+  // email input
+  const emailDiv = document.createElement("div");
+  emailDiv.className = "mb-3";
+  // Create label element
+  const labelEmailElement = document.createElement("label");
+  labelEmailElement.setAttribute("for", "inputEmail");
+  labelEmailElement.setAttribute("class", "form-label label");
+  labelEmailElement.textContent = "Email Address";
+  // Create input element
+  const inputEmailElement = document.createElement("input");
+  inputEmailElement.setAttribute("type", "email");
+  inputEmailElement.setAttribute("class", "form-control");
+  inputEmailElement.setAttribute("id", "inputEmail");
+  inputEmailElement.setAttribute("placeholder", "e.g. stephenking@lorem.com");
+  emailDiv.append(labelEmailElement, inputEmailElement);
+  contentDiv.appendChild(emailDiv);
 
-//  phone potion is staring
-const phoneDiv = document.createElement("div");
-phoneDiv.className = "mb-3";
-// Create label phone
-const labelPhoneElement = document.createElement("label");
-labelPhoneElement.setAttribute("for", "inputNumber");
-labelPhoneElement.setAttribute("class", "form-label label");
-labelPhoneElement.textContent = "Phone Number";
+  //  phone potion is staring
+  const phoneDiv = document.createElement("div");
+  phoneDiv.className = "mb-3";
+  // Create label phone
+  const labelPhoneElement = document.createElement("label");
+  labelPhoneElement.setAttribute("for", "inputNumber");
+  labelPhoneElement.setAttribute("class", "form-label label");
+  labelPhoneElement.textContent = "Phone Number";
 
-// creating input  for phone number
-const inputPhoneElement = document.createElement("input");
-inputPhoneElement.setAttribute("type", "number");
-inputPhoneElement.setAttribute("class", "form-control");
-inputPhoneElement.setAttribute("id", "inputNumber");
-inputPhoneElement.setAttribute("placeholder", "e.g. +1 234 567 890");
+  // creating input  for phone number
+  const inputPhoneElement = document.createElement("input");
+  inputPhoneElement.setAttribute("type", "number");
+  inputPhoneElement.setAttribute("class", "form-control");
+  inputPhoneElement.setAttribute("id", "inputNumber");
+  inputPhoneElement.setAttribute("placeholder", "e.g. +1 234 567 890");
 
-phoneDiv.append(labelPhoneElement, inputPhoneElement);
-contentDiv.appendChild(phoneDiv);
-form.append(contentDiv);
-formDiv.append(infoDiv, form);
-console.log(form);
-const parentDiv = document.getElementById("main-form-div");
+  phoneDiv.append(labelPhoneElement, inputPhoneElement);
+  contentDiv.appendChild(phoneDiv);
+  form.append(contentDiv);
+  formDiv.append(infoDiv, form);
+  console.log(form);
+  const parentDiv = document.getElementById("main-form-div");
 
-parentDiv.appendChild(formDiv);
+  parentDiv.appendChild(formDiv);
+}
+step1();
 // form.addEventListener("input", formSubmit);
 // function formSubmit(e) {
 //   const inputName = document.getElementById("inputName").value;
@@ -103,9 +106,8 @@ let switchValue = false;
 let resolveForm;
 const confimBtn = document.getElementById("confirm");
 confimBtn.style.display = "none";
-
+let buttonId;
 function nevigatePage(e) {
-  let buttonId;
   if (e.target === backButton) {
     buttonId = parseInt(e.target.value);
     buttonId -= 1;
@@ -133,19 +135,34 @@ function nevigatePage(e) {
   } else {
     backButton.style.visibility = "hidden";
   }
+  const numberBox = document.getElementsByClassName("num-box");
+  Array.from(numberBox).forEach((item) => {
+    const selectedStep = parseInt(item.textContent);
+    const box = document.getElementById(item.id);
+    if (selectedStep === buttonId) {
+      box.style.backgroundColor = "var(--light-blue)";
+      box.style.color = "var(--marine-blue";
+      box.style.fontWeight = "bold";
+    } else {
+      box.style.backgroundColor = "transparent";
+      box.style.color = "var(--white)";
+      box.style.fontWeight = "none";
+    }
+  });
 
   nextButton.id = buttonId.toString();
-  const box1 = document.getElementById("box-1");
-  box1.style.backgroundColor = "transparent";
-  box1.style.color = "var(--white)";
-  box1.style.fontWeight = "none";
+
+  // const box1 = document.getElementById("box-1");
+  // box1.style.backgroundColor = "transparent";
+  // box1.style.color = "var(--white)";
+  // box1.style.fontWeight = "none";
   nextButton.style.color = "var(--alabaster)";
   nextButton.style.backgroundColor = "var(--marine-blue)";
   if (buttonId == 2) {
-    const box2 = document.getElementById("box-2");
-    box2.style.backgroundColor = "var(--light-blue)";
-    box2.style.color = "var(--marine-blue";
-    box2.style.fontWeight = "bold";
+    // const box2 = document.getElementById("box-2");
+    // box2.style.backgroundColor = "var(--light-blue)";
+    // box2.style.color = "var(--marine-blue";
+    // box2.style.fontWeight = "bold";
 
     const mainFormDiv = document.getElementById("main-form-div");
     mainFormDiv.style.paddingBottom = "1.4rem";
@@ -336,16 +353,28 @@ function nevigatePage(e) {
         }
       }
     });
+    const aaa = document.querySelector("form");
+    console.log("aaaa", aaa);
+    if (e.target === nextButton) {
+      formDataObj["form"] = aaa.cloneNode(true);
+      console.log(formDataObj["form"]);
+      console.log("form is stored");
+    }
   } else if (buttonId === 3) {
     if (e.target === backButton) {
       console.log(formDataObj["form"], "yahi hai");
+      const formQ = document.querySelector("form");
+      formQ.innerHTML = "";
+      console.log(formDataObj["form"].children);
+      formQ.append(
+        formDataObj["form"].children[0],
+        formDataObj["form"].children[1]
+      );
 
-      const aaa = document.getElementsByClassName("form-div");
-      const parentDiv = aaa[0].parentNode;
-      parentDiv.innerHTML = "";
-      console.log(parentDiv, "parentDiv");
-      parentDiv.appendChild(formDataObj["form"]);
-      return;
+      const contentDiv = document.getElementsByClassName("content-div")[0];
+      if (contentDiv) {
+        contentDiv.addEventListener("click", selectPlan);
+      }
     }
     const mainFormDiv = document.getElementById("main-form-div");
     mainFormDiv.style.paddingBottom = "7rem";
@@ -355,10 +384,10 @@ function nevigatePage(e) {
     box2.style.color = "var(--white)";
     box2.style.fontWeight = "none";
 
-    const box3 = document.getElementById("box-3");
-    box3.style.backgroundColor = "var(--light-blue)";
-    box3.style.color = "var(--marine-blue)";
-    box3.style.fontWeight = "bold";
+    // const box3 = document.getElementById("box-3");
+    // box3.style.backgroundColor = "var(--light-blue)";
+    // box3.style.color = "var(--marine-blue)";
+    // box3.style.fontWeight = "bold";
     const infoDiv = document.getElementById("info");
     infoDiv.children[0].textContent = " Pick add-ons";
     infoDiv.children[1].textContent =
@@ -372,7 +401,7 @@ function nevigatePage(e) {
       formTree[2].innerHTML = "";
       const parentDiv = formTree[0].parentNode.parentNode;
       console.log(parentDiv, "parent");
-      parentDiv.removeChild(parentDiv.children[1]);
+      if (parentDiv.children[1]) parentDiv.removeChild(parentDiv.children[1]);
     }
     // const toggleSwitchDiv = document.getElementsByClassName("toggle-div");
 
@@ -407,18 +436,27 @@ function nevigatePage(e) {
       if (i == 0) {
         inputCheck.id = "checkbox-1";
         inputCheck.value = "$1/mo";
+        if (switchValue) {
+          inputCheck.value = "$10/yr";
+        }
         step3BoldText.textContent = "Online service";
         step3SmallText.textContent = "Access to multiplayer games";
         monthyChargeDiv.textContent = "+$1/mo ";
       } else if (i == 1) {
         inputCheck.id = "checkbox-2";
         inputCheck.value = "$2/mo";
+        if (switchValue) {
+          inputCheck.value = "$20/yr";
+        }
         step3BoldText.textContent = "Large storage";
         step3SmallText.textContent = "Extra 1TB of cloud save";
         monthyChargeDiv.textContent = "+$2/mo ";
       } else {
         inputCheck.id = "checkbox-3";
         inputCheck.value = "$3/mo";
+        if (switchValue) {
+          inputCheck.value = "$20/yr";
+        }
         step3BoldText.textContent = "Customizable profile";
         step3SmallText.textContent = "Custom theme on your profile";
         monthyChargeDiv.textContent = "+$3/mo ";
@@ -437,26 +475,16 @@ function nevigatePage(e) {
       yearlyCharge[1].textContent = "$20/yr";
       yearlyCharge[2].textContent = "$20/yr";
     }
-    const aaa = document.getElementsByClassName("form-div");
-    console.log("aaaa", aaa[0]);
-    if (e.target === nextButton) {
-      formDataObj["form"] = aaa[0].cloneNode(true);
-      console.log(formDataObj["form"]);
-      console.log("form is stored");
-    }
   } else if (buttonId === 4) {
-    console.log(data);
-    console.log(planData, "planData");
+    // const box3 = document.getElementById("box-3");
+    // box3.style.backgroundColor = "transparent";
+    // box3.style.color = "var(--white)";
+    // box3.style.fontWeight = "none";
 
-    const box3 = document.getElementById("box-3");
-    box3.style.backgroundColor = "transparent";
-    box3.style.color = "var(--white)";
-    box3.style.fontWeight = "none";
-
-    const box4 = document.getElementById("box-4");
-    box4.style.backgroundColor = "var(--light-blue)";
-    box4.style.color = "var(--marine-blue";
-    box4.style.fontWeight = "bold";
+    // const box4 = document.getElementById("box-4");
+    // box4.style.backgroundColor = "var(--light-blue)";
+    // box4.style.color = "var(--marine-blue";
+    // box4.style.fontWeight = "bold";
 
     const infoDiv = document.getElementById("info");
     infoDiv.children[0].textContent = "Finishing up";
@@ -505,7 +533,9 @@ function nevigatePage(e) {
     const billingLower = document.createElement("div");
     billingLower.className = "billing-lower";
     const lowerFirstDiv = document.createElement("div");
-
+    console.log(data, "-------------");
+    const timeAndDate1 = Object.values(planData[0]);
+    const timeAndDate = timeAndDate1[0].split("/")[1];
     for (let key in data) {
       lowerFirstDiv.className = "lower-first";
 
@@ -518,6 +548,7 @@ function nevigatePage(e) {
       lowerRightText.className = "lower-right-text price";
       lowerRightText.textContent = data[key];
       sum = data[key].split("/")[0].split("$")[1];
+
       totalBillingSum += parseInt(sum);
 
       // console.log(data);
@@ -540,102 +571,21 @@ function nevigatePage(e) {
     totalSumText.textContent = "Total (per month)";
     const totalSum = document.createElement("p");
     totalSum.className = "total-sum price";
-    totalSum.textContent = `+$${totalBillingSum}/mo`;
+    totalSum.textContent = `+$${totalBillingSum}/${timeAndDate}`;
 
     // Appending the elements to build the structure
     totalBillDiv.append(totalSumText, totalSum);
 
     totalBillingDiv.appendChild(totalBillDiv);
     formDiv.appendChild(totalBillingDiv);
-    if (switchValue) {
-      const priceHtmlCol = document.getElementsByClassName("price");
-      console.log(priceHtmlCol);
-      priceHtmlCol[0].children[0].textContent = "$90/yr";
-      priceHtmlCol[1].textContent = "$10/yr";
-      priceHtmlCol[2].textContent = "$20/yr";
-      priceHtmlCol[3].textContent = "$120/yr";
-    }
-    console.log("step4", formDataObj["form"]);
   } else if (buttonId === 1) {
-    const parentDiv1 = document.getElementById("main-form-div");
-    parentDiv1.innerHTML = "";
-    const box1 = document.getElementById("box-1");
-    box1.style.backgroundColor = "var(--light-blue)";
-    box1.style.color = "var(--marine-blue";
-    box1.style.fontWeight = "bold";
-
-    const formDiv = document.createElement("div");
-    formDiv.className = "form-div";
-    const infoDiv = document.createElement("div");
-    infoDiv.className = "info";
-    infoDiv.id = "info";
-    const infoH2 = document.createElement("h2");
-    const infoParagraph = document.createElement("p");
-    infoH2.textContent = "Personal info";
-    infoParagraph.textContent =
-      "Please provide your name, email address, and phone number.";
-
-    infoDiv.append(infoH2, infoParagraph);
-
-    // form portion
-    form = document.createElement("form");
-    // name input
-    const divName = document.createElement("div");
-    divName.className = "mb-3";
-    //   creating label for class input name
-    const labelNameElement = document.createElement("label");
-    labelNameElement.setAttribute("for", "inputName");
-    labelNameElement.setAttribute("class", "form-label label");
-    labelNameElement.textContent = "Name";
-    // Create input element for name
-    const inputNameElement = document.createElement("input");
-    inputNameElement.setAttribute("type", "text");
-    inputNameElement.setAttribute("class", "form-control");
-    inputNameElement.setAttribute("id", "inputName");
-    inputNameElement.setAttribute("placeholder", "e.g. Stephen King");
-    divName.append(labelNameElement, inputNameElement);
-    form.appendChild(divName);
-
-    // email input
-    const emailDiv = document.createElement("div");
-    emailDiv.className = "mb-3";
-    // Create label element
-    const labelEmailElement = document.createElement("label");
-    labelEmailElement.setAttribute("for", "inputEmail");
-    labelEmailElement.setAttribute("class", "form-label label");
-    labelEmailElement.textContent = "Email Address";
-    // Create input element
-    const inputEmailElement = document.createElement("input");
-    inputEmailElement.setAttribute("type", "email");
-    inputEmailElement.setAttribute("class", "form-control");
-    inputEmailElement.setAttribute("id", "inputEmail");
-    inputEmailElement.setAttribute("placeholder", "e.g. stephenking@lorem.com");
-    emailDiv.append(labelEmailElement, inputEmailElement);
-    form.appendChild(emailDiv);
-
-    //  phone potion is staring
-    const phoneDiv = document.createElement("div");
-    phoneDiv.className = "mb-3";
-    // Create label phone
-    const labelPhoneElement = document.createElement("label");
-    labelPhoneElement.setAttribute("for", "inputNumber");
-    labelPhoneElement.setAttribute("class", "form-label label");
-    labelPhoneElement.textContent = "Phone Number";
-
-    // creating input  for phone number
-    const inputPhoneElement = document.createElement("input");
-    inputPhoneElement.setAttribute("type", "number");
-    inputPhoneElement.setAttribute("class", "form-control");
-    inputPhoneElement.setAttribute("id", "inputNumber");
-    inputPhoneElement.setAttribute("placeholder", "e.g. +1 234 567 890");
-
-    phoneDiv.append(labelPhoneElement, inputPhoneElement);
-    form.appendChild(phoneDiv);
-    formDiv.append(infoDiv, form);
-    console.log(form);
     const parentDiv = document.getElementById("main-form-div");
-
-    parentDiv.appendChild(formDiv);
+    parentDiv.innerHTML = "";
+    step1();
+    const contentDiv = document.getElementsByClassName("content-div")[0];
+    if (contentDiv) {
+      contentDiv.addEventListener("click", selectPlan);
+    }
   }
 }
 
@@ -653,65 +603,95 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function formSubmit(e) {
     e.preventDefault();
-    // const inputName = document.getElementById("inputName").value;
-    // const inputEmail = document.getElementById("inputEmail").value;
-    // const inputPhone = document.getElementById("inputNumber").value;
-    // console.log(inputName, inputEmail, inputPhone);
   }
-  let arcade = 0;
-  let avdance = 0;
-  let pro = 0;
-  function selectPlan(e) {
-    buttonValue = backButton.value;
-    console.log(buttonValue);
+});
+function selectPlan(e) {
+  buttonValue = backButton.value;
+  console.log(buttonValue, "========", buttonId);
 
-    if (buttonValue > 1 && buttonValue <= 3) {
-      const planSelection = e.target.children[1];
+  if (buttonValue > 1 && buttonValue <= 3) {
+    const planSelection = e.target.children[1];
 
-      // return;
+    // return;
 
-      if (buttonValue == 2) {
-        if (planSelection.children.length > 0) {
-          const planName = planSelection.children[0].textContent;
+    if (buttonValue == 2) {
+      if (planSelection.children.length > 0) {
+        const planName = planSelection.children[0].textContent;
 
-          let planObj = {};
-          planObj[planName] = planSelection.children[1].textContent;
-          planData.push(planObj);
-          if (planData.length > 1) {
-            planData.shift();
+        let planObj = {};
+        planObj[planName] = planSelection.children[1].textContent;
+        planData.push(planObj);
+        if (planData.length > 1) {
+          planData.shift();
+        }
+
+        const content = document.getElementsByClassName("content-div");
+
+        Array.from(content[0].children).forEach((item) => {
+          const id = item.children[0].id.toLowerCase();
+          const checkId = planData[0];
+          const idOfSelectedItem = Object.keys(checkId)[0].toLowerCase();
+
+          if (id.includes(idOfSelectedItem)) {
+            item.children[0].style.border = "1px solid var(--purplish-blue)";
+            item.children[0].style.backgroundColor = "var(--pastel-blue)";
+          } else {
+            item.children[0].style.border = "1px solid var(--light-gray)";
+            item.children[0].style.backgroundColor = "transparent";
           }
+        });
+      }
+    } else {
+      const aa = document.querySelectorAll(".form-check");
+      const checkboxFirst = document.getElementById("checkbox-1");
+      const checkboxSecond = document.getElementById("checkbox-2");
+      const checkboxThird = document.getElementById("checkbox-3");
 
-          const content = document.getElementsByClassName("content-div");
+      console.log(
+        checkboxFirst.checked,
+        checkboxSecond.checked,
+        checkboxThird.checked
+      );
+      const selectedBox1 = checkboxFirst.parentNode.parentNode;
+      const selectedBox2 = checkboxSecond.parentNode.parentNode;
+      const selectedBox3 = checkboxThird.parentNode.parentNode;
+      if (!switchValue) {
+        if (checkboxFirst.checked) {
+          const value1 = checkboxFirst.value;
 
-          Array.from(content[0].children).forEach((item) => {
-            const id = item.children[0].id.toLowerCase();
-            const checkId = planData[0];
-            const idOfSelectedItem = Object.keys(checkId)[0].toLowerCase();
+          let obj = {};
+          data["Online service"] = value1;
+          selectedBox1.style.border = "1px solid var(--purplish-blue)";
+          selectedBox1.style.backgroundColor = "var(--pastel-blue)";
+        } else {
+          selectedBox1.style.border = "1px solid var(--light-gray)";
+          selectedBox1.style.backgroundColor = "transparent";
+          delete data["Online service"];
+        }
 
-            if (id.includes(idOfSelectedItem)) {
-              item.children[0].style.border = "1px solid var(--purplish-blue)";
-              item.children[0].style.backgroundColor = "var(--pastel-blue)";
-            } else {
-              item.children[0].style.border = "1px solid var(--light-gray)";
-              item.children[0].style.backgroundColor = "transparent";
-            }
-          });
+        if (checkboxSecond.checked) {
+          const value2 = checkboxSecond.value;
+          console.log(value2);
+          let obj = {};
+          data["Large storage"] = value2;
+          selectedBox2.style.border = "1px solid var(--purplish-blue)";
+          selectedBox2.style.backgroundColor = "var(--pastel-blue)";
+        } else {
+          selectedBox2.style.border = "1px solid var(--light-gray)";
+          selectedBox2.style.backgroundColor = "transparent";
+          delete data["Large storage"];
+        }
+        if (checkboxThird.checked) {
+          const value3 = checkboxThird.value;
+          data["Customizable profile"] = value3;
+          selectedBox3.style.border = "1px solid var(--purplish-blue)";
+          selectedBox3.style.backgroundColor = "var(--pastel-blue)";
+        } else {
+          selectedBox3.style.border = "1px solid var(--light-gray)";
+          selectedBox3.style.backgroundColor = "transparent";
+          delete data["Customizable profile"];
         }
       } else {
-        const aa = document.querySelectorAll(".form-check");
-        const checkboxFirst = document.getElementById("checkbox-1");
-        const checkboxSecond = document.getElementById("checkbox-2");
-        const checkboxThird = document.getElementById("checkbox-3");
-
-        console.log(
-          checkboxFirst.checked,
-          checkboxSecond.checked,
-          checkboxThird.checked
-        );
-        const selectedBox1 = checkboxFirst.parentNode.parentNode;
-        const selectedBox2 = checkboxSecond.parentNode.parentNode;
-        const selectedBox3 = checkboxThird.parentNode.parentNode;
-
         if (checkboxFirst.checked) {
           const value1 = checkboxFirst.value;
 
@@ -748,6 +728,8 @@ document.addEventListener("DOMContentLoaded", function () {
           delete data["Customizable profile"];
         }
       }
+
+      console.log(data);
     }
   }
-});
+}
