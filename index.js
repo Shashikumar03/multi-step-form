@@ -1,6 +1,6 @@
 const box1 = document.getElementById("box-1");
 box1.style.backgroundColor = "var(--light-blue)";
-box1.style.color = "var(--marine-blue";
+box1.style.color = "var(--marine-blue)";
 box1.style.fontWeight = "bold";
 
 const formDiv = document.createElement("div");
@@ -18,6 +18,8 @@ infoDiv.append(infoH2, infoParagraph);
 
 // form portion
 let form = document.createElement("form");
+let contentDiv = document.createElement("div");
+contentDiv.className = "content-div";
 // name input
 const divName = document.createElement("div");
 divName.className = "mb-3";
@@ -33,7 +35,7 @@ inputNameElement.setAttribute("class", "form-control");
 inputNameElement.setAttribute("id", "inputName");
 inputNameElement.setAttribute("placeholder", "e.g. Stephen King");
 divName.append(labelNameElement, inputNameElement);
-form.appendChild(divName);
+contentDiv.appendChild(divName);
 
 // email input
 const emailDiv = document.createElement("div");
@@ -50,7 +52,7 @@ inputEmailElement.setAttribute("class", "form-control");
 inputEmailElement.setAttribute("id", "inputEmail");
 inputEmailElement.setAttribute("placeholder", "e.g. stephenking@lorem.com");
 emailDiv.append(labelEmailElement, inputEmailElement);
-form.appendChild(emailDiv);
+contentDiv.appendChild(emailDiv);
 
 //  phone potion is staring
 const phoneDiv = document.createElement("div");
@@ -69,7 +71,8 @@ inputPhoneElement.setAttribute("id", "inputNumber");
 inputPhoneElement.setAttribute("placeholder", "e.g. +1 234 567 890");
 
 phoneDiv.append(labelPhoneElement, inputPhoneElement);
-form.appendChild(phoneDiv);
+contentDiv.appendChild(phoneDiv);
+form.append(contentDiv);
 formDiv.append(infoDiv, form);
 console.log(form);
 const parentDiv = document.getElementById("main-form-div");
@@ -86,6 +89,9 @@ parentDiv.appendChild(formDiv);
 
 let nextButton = document.getElementById("1");
 let formDataObj = {};
+const data = {};
+let planData = [];
+let selectAddOnforBilling = [];
 nextButton.addEventListener("click", nevigatePage);
 const backButton = document.getElementById("decrement-1");
 backButton.style.visibility = "hidden";
@@ -223,7 +229,7 @@ function nevigatePage(e) {
 
     upperBoldText = document.createElement("p");
     upperBoldText.className = "text-bold";
-    upperBoldText.textContent = "pro";
+    upperBoldText.textContent = "Pro";
 
     lowerText = document.createElement("p");
     lowerText.textContent = "$15/mo";
@@ -339,7 +345,7 @@ function nevigatePage(e) {
     }
     const mainFormDiv = document.getElementById("main-form-div");
     mainFormDiv.style.paddingBottom = "7rem";
-    console.log("nhi btaunga");
+
     const box2 = document.getElementById("box-2");
     box2.style.backgroundColor = "transparent";
     box2.style.color = "var(--white)";
@@ -355,12 +361,14 @@ function nevigatePage(e) {
       "Add-ons help enhance your gaming experience.";
 
     const formTree = document.getElementsByClassName("mb-3");
+    console.log(formTree);
     if (formTree[0]) {
       formTree[0].innerHTML = "";
       formTree[1].innerHTML = "";
       formTree[2].innerHTML = "";
-      const parentDiv = formTree[0].parentNode;
-      parentDiv.removeChild(parentDiv.children[3]);
+      const parentDiv = formTree[0].parentNode.parentNode;
+      console.log(parentDiv, "parent");
+      parentDiv.removeChild(parentDiv.children[1]);
     }
     // const toggleSwitchDiv = document.getElementsByClassName("toggle-div");
 
@@ -378,7 +386,7 @@ function nevigatePage(e) {
       const inputCheck = document.createElement("input");
       inputCheck.className = "form-check"; // -input
       inputCheck.type = "checkbox";
-      inputCheck.checked = "true";
+      // inputCheck.checked = "";
       const checkboxDiv = document.createElement("div");
       checkboxDiv.className = "checkbox-div";
       checkboxDiv.appendChild(inputCheck);
@@ -394,17 +402,19 @@ function nevigatePage(e) {
       monthyChargeDiv.className = "monthly-charge";
       if (i == 0) {
         inputCheck.id = "checkbox-1";
+        inputCheck.value = "$1/mo";
         step3BoldText.textContent = "Online service";
         step3SmallText.textContent = "Access to multiplayer games";
         monthyChargeDiv.textContent = "+$1/mo ";
       } else if (i == 1) {
         inputCheck.id = "checkbox-2";
-
+        inputCheck.value = "$2/mo";
         step3BoldText.textContent = "Large storage";
         step3SmallText.textContent = "Extra 1TB of cloud save";
         monthyChargeDiv.textContent = "+$2/mo ";
       } else {
         inputCheck.id = "checkbox-3";
+        inputCheck.value = "$3/mo";
         step3BoldText.textContent = "Customizable profile";
         step3SmallText.textContent = "Custom theme on your profile";
         monthyChargeDiv.textContent = "+$3/mo ";
@@ -431,6 +441,9 @@ function nevigatePage(e) {
       console.log("form is stored");
     }
   } else if (buttonId === 4) {
+    console.log(data);
+    console.log(planData, "planData");
+
     const box3 = document.getElementById("box-3");
     box3.style.backgroundColor = "transparent";
     box3.style.color = "var(--white)";
@@ -456,52 +469,61 @@ function nevigatePage(e) {
     const upperRight = document.createElement("div");
     upperRight.className = "upper-right price";
 
+    // for (let key of planData) {
     // upperLeft;
-    const leftUpperText = document.createElement("p");
-    leftUpperText.className = "upper-bold-text";
-    leftUpperText.textContent = "Arcade (Monthly)";
-    const leftLowerText = document.createElement("p");
-    leftLowerText.className = "upper-small-text";
-    leftLowerText.innerHTML = "<u>Change<u/>";
-    upperLeft.append(leftUpperText, leftLowerText);
 
-    // upperRight;
-    const upperRightText = document.createElement("p");
-    upperRightText.className = "uppert-right-text";
-    upperRightText.textContent = "$9/mo";
-    upperRight.appendChild(upperRightText);
+    let totalBillingSum = 0;
+    for (let key in planData[planData.length - 1]) {
+      const leftUpperText = document.createElement("p");
+      leftUpperText.className = "upper-bold-text";
+      leftUpperText.textContent = `${key} (Monthly)`;
+      const leftLowerText = document.createElement("p");
+      leftLowerText.className = "upper-small-text";
+      leftLowerText.innerHTML = "<u>Change<u/>";
+      upperLeft.append(leftUpperText, leftLowerText);
 
-    billingUpper.append(upperLeft, upperRight);
+      // upperRight;
+      const upperRightText = document.createElement("p");
+      upperRightText.className = "uppert-right-text";
+      upperRightText.textContent = `${planData[planData.length - 1][key]}`;
+      let sum = planData[planData.length - 1][key].split("/")[0].split("$");
+      totalBillingSum += parseInt(sum[1]);
+      upperRight.appendChild(upperRightText);
+
+      billingUpper.append(upperLeft, upperRight);
+      // }
+    }
+
+    ////yaha se
     const hr = document.createElement("hr");
     hr.className = "hr";
 
     const billingLower = document.createElement("div");
     billingLower.className = "billing-lower";
     const lowerFirstDiv = document.createElement("div");
-    lowerFirstDiv.className = "lower-first";
-    const lowerSecondDiv = document.createElement("div");
-    lowerSecondDiv.className = "lower-second";
-    // lowerFirstDiv
-    const lowerLeftText = document.createElement("p");
-    lowerLeftText.className = "lower-left-text";
-    lowerLeftText.textContent = "Online service";
 
-    const lowerRightText = document.createElement("p");
-    lowerRightText.className = "lower-right-text price";
-    lowerRightText.textContent = "+$1/mo";
-    lowerFirstDiv.append(lowerLeftText, lowerRightText);
+    for (let key in data) {
+      lowerFirstDiv.className = "lower-first";
 
-    // lowerSecondDiv
-    const lowerSecLeftText = document.createElement("p");
-    lowerSecLeftText.className = "lower-left-text";
-    lowerSecLeftText.textContent = "Larger storage";
+      // lowerFirstDiv
+      const lowerLeftText = document.createElement("p");
+      lowerLeftText.className = "lower-left-text";
+      lowerLeftText.textContent = key;
 
-    const lowerSecRightText = document.createElement("p");
-    lowerSecRightText.className = "lower-right-text price";
-    lowerSecRightText.textContent = "+$2/mo";
-    lowerSecondDiv.append(lowerSecLeftText, lowerSecRightText);
+      const lowerRightText = document.createElement("p");
+      lowerRightText.className = "lower-right-text price";
+      lowerRightText.textContent = data[key];
+      sum = data[key].split("/")[0].split("$")[1];
+      totalBillingSum += parseInt(sum);
 
-    billingLower.append(lowerFirstDiv, lowerSecondDiv);
+      // console.log(data);
+      const pickOnDiv = document.createElement("div");
+      pickOnDiv.className = "pick-on";
+      pickOnDiv.append(lowerLeftText, lowerRightText);
+      lowerFirstDiv.append(pickOnDiv);
+    }
+
+    billingLower.append(lowerFirstDiv);
     billMonthly.append(billingUpper, hr, billingLower);
     formDiv.appendChild(billMonthly);
     console.log(formDiv);
@@ -514,7 +536,7 @@ function nevigatePage(e) {
     totalSumText.textContent = "Total (per month)";
     const totalSum = document.createElement("p");
     totalSum.className = "total-sum price";
-    totalSum.textContent = "+$12/mo";
+    totalSum.textContent = `+$${totalBillingSum}/mo`;
 
     // Appending the elements to build the structure
     totalBillDiv.append(totalSumText, totalSum);
@@ -612,3 +634,71 @@ function nevigatePage(e) {
     parentDiv.appendChild(formDiv);
   }
 }
+
+let buttonValue = backButton.value;
+
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.querySelector("form");
+  const contentDiv = document.getElementsByClassName("content-div");
+  contentDiv[0].addEventListener("click", selectPlan);
+
+  if (form) {
+    form.addEventListener("input", formSubmit);
+    // form.addEventListener("click", selectPlan);
+  }
+
+  function formSubmit(e) {
+    e.preventDefault();
+    // const inputName = document.getElementById("inputName").value;
+    // const inputEmail = document.getElementById("inputEmail").value;
+    // const inputPhone = document.getElementById("inputNumber").value;
+    // console.log(inputName, inputEmail, inputPhone);
+  }
+
+  function selectPlan(e) {
+    buttonValue = backButton.value;
+    console.log(buttonValue);
+
+    if (buttonValue > 1 && buttonValue <= 3) {
+      const planSelection = e.target.children[1];
+
+      // return;
+
+      if (buttonValue == 2) {
+        if (planSelection.children.length > 0) {
+          const planName = planSelection.children[0].textContent;
+          let planObj = {};
+          planObj[planName] = planSelection.children[1].textContent;
+          planData.push(planObj);
+        }
+      } else {
+        const aa = document.querySelectorAll(".form-check");
+        const checkboxFirst = document.getElementById("checkbox-1");
+        const checkboxSecond = document.getElementById("checkbox-2");
+        const checkboxThird = document.getElementById("checkbox-3");
+
+        console.log(
+          checkboxFirst.checked,
+          checkboxSecond.checked,
+          checkboxThird.checked
+        );
+        if (checkboxFirst.checked) {
+          const value1 = checkboxFirst.value;
+          console.log(value1);
+          let obj = {};
+          data["Online service"] = value1;
+        }
+        if (checkboxSecond.checked) {
+          const value2 = checkboxSecond.value;
+          console.log(value2);
+          let obj = {};
+          data["Large storage"] = value2;
+        }
+        if (checkboxThird.checked) {
+          const value3 = checkboxThird.value;
+          data["Customizable profile"] = value3;
+        }
+      }
+    }
+  }
+});
