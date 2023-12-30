@@ -86,7 +86,7 @@ step1();
 
 let nextButton = document.getElementById("1");
 let formDataObj = {};
-const data = {};
+let data = {};
 let planData = [];
 let selectAddOnforBilling = [];
 nextButton.addEventListener("click", nevigatePage);
@@ -432,9 +432,6 @@ function nevigatePage(e) {
       if (contentDiv) {
         contentDiv.addEventListener("click", selectPlan);
       }
-
-      const nhi = document.getElementById("main-form-div");
-      console.log(nhi);
     }
     const mainFormDiv = document.getElementById("main-form-div");
     console.log(mainFormDiv, "ggggggggggggggggggggggggg");
@@ -495,6 +492,7 @@ function nevigatePage(e) {
       const monthyChargeDiv = document.createElement("div");
       monthyChargeDiv.className = "monthly-charge";
       if (i == 0) {
+        formCheck.id = "service";
         inputCheck.id = "checkbox-1";
         inputCheck.value = "$1/mo";
         if (switchValue) {
@@ -504,6 +502,7 @@ function nevigatePage(e) {
         step3SmallText.textContent = "Access to multiplayer games";
         monthyChargeDiv.textContent = "+$1/mo ";
       } else if (i == 1) {
+        formCheck.id = "storage";
         inputCheck.id = "checkbox-2";
         inputCheck.value = "$2/mo";
         if (switchValue) {
@@ -513,6 +512,7 @@ function nevigatePage(e) {
         step3SmallText.textContent = "Extra 1TB of cloud save";
         monthyChargeDiv.textContent = "+$2/mo ";
       } else {
+        formCheck.id = "profile";
         inputCheck.id = "checkbox-3";
         inputCheck.value = "$3/mo";
         if (switchValue) {
@@ -647,6 +647,33 @@ function nevigatePage(e) {
     if (contentDiv) {
       contentDiv.addEventListener("click", selectPlan);
     }
+  }
+  if (e.target === backButton && Object.keys(data).length > 0) {
+    if (Object.keys(data).length > 0) {
+      const addedPlanKeyArr = Object.keys(data);
+      for (let i = 0; i < addedPlanKeyArr.length; i++) {
+        const idOfAddOn = addedPlanKeyArr[i].split(" ")[1];
+        console.log(idOfAddOn, "==============");
+
+        if (idOfAddOn === "service") {
+          let checkboxFirst = document.getElementById("checkbox-1");
+          if (checkboxFirst) checkboxFirst.checked = true;
+        } else if (idOfAddOn === "storage") {
+          let checkboxSecond = document.getElementById("checkbox-2");
+          if (checkboxSecond) checkboxSecond.checked = true;
+        } else {
+          let checkboxThird = document.getElementById("checkbox-3");
+          if (checkboxThird) checkboxThird.checked = true;
+        }
+        const selectAddOn = document.getElementById(idOfAddOn);
+        if (selectAddOn) {
+          selectAddOn.style.border = "1px solid var(--purplish-blue)";
+          selectAddOn.style.backgroundColor = "var(--pastel-blue)";
+        }
+        data = {};
+      }
+    }
+    // console.log(addedPlanKey);
   }
 }
 
