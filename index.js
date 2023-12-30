@@ -321,14 +321,18 @@ function nevigatePage(e) {
         const subscription = document.getElementsByClassName("subscription");
         if (document.getElementById("month-arcade")) {
           subscription[0].removeChild(document.getElementById("month-arcade"));
+          console.log(subscription[0]);
+          subscription[0].children[1].textContent = "$9/mo";
         }
         if (document.getElementById("month-advanced")) {
           subscription[1].removeChild(
             document.getElementById("month-advanced")
           );
+          subscription[1].children[1].textContent = "$15/mo";
         }
         if (document.getElementById("month-pro")) {
           subscription[2].removeChild(document.getElementById("month-pro"));
+          subscription[2].children[1].textContent = "$15/mo";
         }
       }
     });
