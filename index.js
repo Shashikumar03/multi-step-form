@@ -81,12 +81,6 @@ function step1() {
   parentDiv.appendChild(formDiv);
 }
 step1();
-// form.addEventListener("input", formSubmit);
-// function formSubmit(e) {
-//   const inputName = document.getElementById("inputName").value;
-//   const inputEmail = document.getElementById("inputEmail").value;
-//   const inputPhone = document.getElementById("inputNumber").value;
-// }
 
 /////////////////////////////event is applied//////////////////////////
 
@@ -362,21 +356,31 @@ function nevigatePage(e) {
     }
   } else if (buttonId === 3) {
     if (e.target === backButton) {
-      console.log(formDataObj["form"], "yahi hai");
+      // console.log(formDataObj["form"], "yahi hai");
       const formQ = document.querySelector("form");
       formQ.innerHTML = "";
       console.log(formDataObj["form"].children);
-      formQ.append(
-        formDataObj["form"].children[0],
-        formDataObj["form"].children[1]
-      );
+  
+      const contentDiv1 = document.createElement("div");
+      contentDiv1.className = "content-div";
+      for (let i = 0; i < 3; i++) {
+        const divName = document.createElement("div");
+        divName.className = "mb-3";
+        contentDiv1.appendChild(divName);
+      }
+      formQ.appendChild(contentDiv1);
 
+     
       const contentDiv = document.getElementsByClassName("content-div")[0];
       if (contentDiv) {
         contentDiv.addEventListener("click", selectPlan);
       }
+    
+      const nhi = document.getElementById("main-form-div");
+      console.log(nhi);
     }
     const mainFormDiv = document.getElementById("main-form-div");
+    console.log(mainFormDiv, "ggggggggggggggggggggggggg");
     mainFormDiv.style.paddingBottom = "7rem";
 
     const box2 = document.getElementById("box-2");
