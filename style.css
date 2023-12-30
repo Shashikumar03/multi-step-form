@@ -91,7 +91,7 @@ body {
   background-color: var(--white);
   border-radius: 0.8rem;
   margin-top: -3.8rem;
-  position: relative;
+  /* position: relative; */
   /* margin-bottom: 5rems; */
 }
 
@@ -103,9 +103,8 @@ footer {
   align-items: center;
   justify-content: center;
   background-color: var(--alabaster);
-  position: absolute;
-  /* bottom: 0; */
-  
+  margin-top: 1rem;
+
   bottom: 0;
   margin-top: 2rem;
 }
