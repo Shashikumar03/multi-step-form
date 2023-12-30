@@ -26,6 +26,7 @@ html {
 body {
   font-family: "Ubuntu", sans-serif;
   background-color: var(--light-blue);
+  position: relative;
 }
 .main-container {
   display: flex;
@@ -91,6 +92,7 @@ body {
   border-radius: 0.8rem;
   margin-top: -3.8rem;
   /* position: absolute; */
+  /* margin-bottom: 5rems; */
 }
 
 footer {
@@ -101,6 +103,9 @@ footer {
   align-items: center;
   justify-content: center;
   background-color: var(--alabaster);
+  position: fixed;
+  bottom: 0;
+  margin-top: 1rem;
 }
 .footer-item {
   /* border: 2px solid red; */
