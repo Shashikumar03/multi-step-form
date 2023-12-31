@@ -29,6 +29,7 @@ body {
   /* position: relative; */
 }
 .main-container {
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -90,7 +91,8 @@ body {
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   background-color: var(--white);
   border-radius: 0.8rem;
-  margin-top: -3.8rem;
+  margin-top: -4rem;
+  margin-bottom: 4rem;
   /* position: relative; */
   /* margin-bottom: 5rems; */
 }
