@@ -355,7 +355,6 @@ function nevigatePage(e) {
       }
     });
     const aaa = document.querySelector("form");
-    console.log("aaaa", aaa);
     if (e.target === nextButton) {
       formDataObj["form"] = aaa.cloneNode(true);
       console.log(formDataObj["form"]);
@@ -538,16 +537,6 @@ function nevigatePage(e) {
       yearlyCharge[2].textContent = "$20/yr";
     }
   } else if (buttonId === 4) {
-    // const box3 = document.getElementById("box-3");
-    // box3.style.backgroundColor = "transparent";
-    // box3.style.color = "var(--white)";
-    // box3.style.fontWeight = "none";
-
-    // const box4 = document.getElementById("box-4");
-    // box4.style.backgroundColor = "var(--light-blue)";
-    // box4.style.color = "var(--marine-blue";
-    // box4.style.fontWeight = "bold";
-
     const infoDiv = document.getElementById("info");
     infoDiv.children[0].textContent = "Finishing up";
     infoDiv.children[1].textContent =
@@ -562,9 +551,6 @@ function nevigatePage(e) {
     upperLeft.className = "upper-left";
     const upperRight = document.createElement("div");
     upperRight.className = "upper-right price";
-
-    // for (let key of planData) {
-    // upperLeft;
 
     let totalBillingSum = 0;
     for (let key in planData[planData.length - 1]) {
@@ -650,6 +636,9 @@ function nevigatePage(e) {
   } else if (buttonId === 1) {
     const parentDiv = document.getElementById("main-form-div");
     parentDiv.innerHTML = "";
+    if (e.target === backButton && planData.length > 0) {
+      planData = [];
+    }
     step1();
     const contentDiv = document.getElementsByClassName("content-div")[0];
     if (contentDiv) {
