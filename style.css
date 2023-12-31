@@ -411,7 +411,6 @@ footer {
 
 @media only screen and (min-width: 800px) {
   body {
-    background-color: var(--light-blue);
   }
   main {
     border: 2px solid black;
@@ -427,9 +426,9 @@ footer {
     flex-direction: row;
     justify-content: flex-start;
     align-items: flex-start;
-    border: 2px solid red;
+    /* border: 2px solid red; */
     padding: 1rem;
-    width: 70%;
+    width: 75%;
     background-color: var(--alabaster);
     border-radius: 0.8rem;
     position: relative;
@@ -500,14 +499,15 @@ footer {
     padding-right: 2.2rem;
     padding-top: 2rem;
     padding-bottom: 2rem;
-    width: 85%;
+    width: 80%;
     box-shadow: none;
-    background-color: var(--white);
+    /* background-color: var(--white); */
     border-radius: 0.8rem;
     margin-top: 0rem;
     margin-bottom: 4rem;
     /* position: relative; */
     /* margin-bottom: 5rems; */
+    background-color: var(--alabaster);
   }
 
   footer {
@@ -561,12 +561,13 @@ footer {
   }
   form {
     /* border: 2px solid red; */
-    width: 100%
+    width: 100%;
   }
   .step2-content {
     /* border: 2px solid rgb(20, 19, 19); */
     width: 100%;
     display: flex;
+    flex-direction: row;
     gap: 0.8rem;
   }
   .mb-3 {
