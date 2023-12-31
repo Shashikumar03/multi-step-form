@@ -857,7 +857,8 @@ function confirmPayment(e) {
       itemDiv.appendChild(pTag);
     }
     confirmMainDiv.appendChild(itemDiv);
+    const footer = document.getElementsByTagName("footer");
+    footer[0].style.display = "none";
   }
   formDiv[0].appendChild(confirmMainDiv);
-  console.log(confirmMainDiv);
 }
