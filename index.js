@@ -630,7 +630,11 @@ function nevigatePage(e) {
     totalBillDiv.className = "total-bill-div";
     const totalSumText = document.createElement("p");
     totalSumText.className = "total-sum-text";
-    totalSumText.textContent = "Total (per month)";
+    if (timeAndDate === "yr") {
+      totalSumText.textContent = `Total (per year)`;
+    } else {
+      totalSumText.textContent = "Total (per month)";
+    }
     const totalSum = document.createElement("p");
     totalSum.className = "total-sum price";
     totalSum.textContent = `+$${totalBillingSum}/${timeAndDate}`;
@@ -657,8 +661,6 @@ function nevigatePage(e) {
       const addedPlanKeyArr = Object.keys(data);
       for (let i = 0; i < addedPlanKeyArr.length; i++) {
         const idOfAddOn = addedPlanKeyArr[i].split(" ")[1];
-        console.log(idOfAddOn, "==============");
-
         if (idOfAddOn === "service") {
           let checkboxFirst = document.getElementById("checkbox-1");
           if (checkboxFirst) checkboxFirst.checked = true;
@@ -670,7 +672,7 @@ function nevigatePage(e) {
           if (checkboxThird) checkboxThird.checked = true;
         }
         const selectAddOn = document.getElementById(idOfAddOn).children[0];
-        console.log(selectAddOn, "yyyyyyyyyyyyyyyyyyyyyyyy");
+
         if (selectAddOn) {
           selectAddOn.style.border = "1px solid var(--purplish-blue)";
           selectAddOn.style.backgroundColor = "var(--pastel-blue)";
