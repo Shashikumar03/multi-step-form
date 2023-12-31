@@ -21,6 +21,7 @@ function step1() {
   let form = document.createElement("form");
   let contentDiv = document.createElement("div");
   contentDiv.className = "content-div";
+
   // name input
   const divName = document.createElement("div");
   divName.className = "mb-3";
@@ -404,14 +405,18 @@ function nevigatePage(e) {
           selectSubcription.style.backgroundColor = "var(--pastel-blue)";
         }
       } else {
-        const selectMonthPlan =
-          Object.keys(planData[0])[0].toLowerCase() + "-id";
-        console.log(selectMonthPlan);
-        const monthItemPlan = document.getElementById(selectMonthPlan);
-        monthItemPlan.style.border = "1px solid var(--purplish-blue)";
-        monthItemPlan.style.backgroundColor = "var(--pastel-blue)";
+        if (planData.length > 0) {
+          const selectMonthPlan =
+            Object.keys(planData[0])[0].toLowerCase() + "-id";
+          console.log(selectMonthPlan);
+          const monthItemPlan = document.getElementById(selectMonthPlan);
+          monthItemPlan.style.border = "1px solid var(--purplish-blue)";
+          monthItemPlan.style.backgroundColor = "var(--pastel-blue)";
+        }
       }
     }
+    const contentDiv = document.getElementsByClassName("content-div")[0];
+    contentDiv.className = "content-div step2-content";
   } else if (buttonId === 3) {
     if (e.target === backButton) {
       // console.log(formDataObj["form"], "yahi hai");
@@ -536,6 +541,8 @@ function nevigatePage(e) {
       yearlyCharge[1].textContent = "$20/yr";
       yearlyCharge[2].textContent = "$20/yr";
     }
+    const contentDiv = document.getElementsByClassName("content-div")[0];
+    if (contentDiv) contentDiv.className = "content-div";
   } else if (buttonId === 4) {
     const infoDiv = document.getElementById("info");
     infoDiv.children[0].textContent = "Finishing up";
@@ -853,3 +860,14 @@ function confirmPayment(e) {
   }
   formDiv[0].appendChild(confirmMainDiv);
 }
+// const screenWidth =
+//   window.innerWidth ||
+//   document.documentElement.clientWidth ||
+//   document.body.clientWidth;
+// if (screenWidth > 800) {
+//   const desktopImageDiv = document.getElementsByClassName("desktop-image-div");
+//   desktopImageDiv[0].style.display = "block";
+// } else {
+//   const desktopImageDiv = document.getElementsByClassName("desktop-image-div");
+//   desktopImageDiv[0].style.display = "none";
+// }dedesksk;
