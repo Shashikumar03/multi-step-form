@@ -98,8 +98,8 @@ console.log(backButton);
 let switchValue = false;
 
 let resolveForm;
-const confimBtn = document.getElementById("confirm");
-confimBtn.style.display = "none";
+const confirmBtn = document.getElementById("confirm");
+confirmBtn.style.display = "none";
 let buttonId;
 function nevigatePage(e) {
   if (e.target === backButton) {
@@ -113,15 +113,15 @@ function nevigatePage(e) {
 
   backButton.value = buttonId;
   if (buttonId === 4) {
-    confimBtn.style.display = "block";
+    confirmBtn.style.display = "block";
     nextButton.style.display = "none";
 
-    confimBtn.textContent = "Confirm";
-    confimBtn.style.color = "var(--alabaster)";
-    confimBtn.style.backgroundColor = "var(--purplish-blue)";
+    confirmBtn.textContent = "Confirm";
+    confirmBtn.style.color = "var(--alabaster)";
+    confirmBtn.style.backgroundColor = "var(--purplish-blue)";
   } else {
     nextButton.style.display = "block";
-    confimBtn.style.display = "none";
+    confirmBtn.style.display = "none";
   }
 
   if (buttonId > 1 && buttonId < 5) {
@@ -640,6 +640,9 @@ function nevigatePage(e) {
 
     totalBillingDiv.appendChild(totalBillDiv);
     formDiv.appendChild(totalBillingDiv);
+    if (confirmBtn) {
+      confirmBtn.addEventListener("dblclick", confirmPayment);
+    }
   } else if (buttonId === 1) {
     const parentDiv = document.getElementById("main-form-div");
     parentDiv.innerHTML = "";
@@ -821,4 +824,40 @@ function selectPlan(e) {
       console.log(data);
     }
   }
+}
+
+function confirmPayment(e) {
+  console.log("doubleClick");
+  const formDiv = document.getElementsByClassName("form-div");
+  console.log(formDiv);
+  formDiv[0].innerHTML = "";
+  const confirmMainDiv = document.createElement("div");
+  confirmMainDiv.className = "confirm-main-div";
+  for (let i = 0; i < 3; i++) {
+    const itemDiv = document.createElement("div");
+    itemDiv.classList = "items-confirm";
+    if (i === 0) {
+      imgDiv = document.createElement("div");
+      imgDiv.className = "confirm-img";
+      const imgTag = document.createElement("img");
+      imgTag.src = "./assets/images/icon-thank-you.svg";
+      imgDiv.appendChild(imgTag);
+      itemDiv.appendChild(imgDiv);
+    } else if (i === 1) {
+      const pTag = document.createElement("p");
+      pTag.className = "thank-you";
+      pTag.textContent = "Thank you!";
+      itemDiv.appendChild(pTag);
+    } else {
+      const pTag = document.createElement("p");
+      pTag.textContent = `Thanks for confirming your subscription! We hope you have fun
+    using our platform. If you ever need support, please feel free to email us
+    at support@loremgaming.com.`;
+      pTag.className = "confirm-text";
+      itemDiv.appendChild(pTag);
+    }
+    confirmMainDiv.appendChild(itemDiv);
+  }
+  formDiv[0].appendChild(confirmMainDiv);
+  console.log(confirmMainDiv);
 }

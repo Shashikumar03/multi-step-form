@@ -366,3 +366,40 @@ footer {
   /* border: 2px solid red; */
   justify-content: space-between;
 }
+/* step4 */
+.confirm-main-div {
+  /* border: 2px solid red; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  padding-top: 4rem;
+}
+.items-confirm {
+  /* border: 2px solid red; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.2rem;
+}
+.confirm-img {
+  /* border: 2px solid red; */
+  width: 4rem;
+  height: 4rem;
+}
+.confirm-img > img {
+  width: 100%;
+  height: 100%;
+}
+.thank-you {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--marine-blue);
+}
+.confirm-text {
+  /* border: 2px solid red; */
+  text-align: center;
+  font-size: 1rem;
+  color: var(--cool-gray);
+}
