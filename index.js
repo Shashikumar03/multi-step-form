@@ -536,13 +536,13 @@ function nevigatePage(e) {
       } else {
         formCheck.id = "profile";
         inputCheck.id = "checkbox-3";
-        inputCheck.value = "$3/mo";
+        inputCheck.value = "$2/mo";
         if (switchValue) {
           inputCheck.value = "$20/yr";
         }
         step3BoldText.textContent = "Customizable profile";
         step3SmallText.textContent = "Custom theme on your profile";
-        monthyChargeDiv.textContent = "+$3/mo ";
+        monthyChargeDiv.textContent = "+$2/mo ";
       }
       step3TextDiv.append(step3BoldText, step3SmallText);
       formCheckFirstChild.append(checkboxDiv, step3TextDiv, monthyChargeDiv);
@@ -561,6 +561,8 @@ function nevigatePage(e) {
     const contentDiv = document.getElementsByClassName("content-div")[0];
     if (contentDiv) contentDiv.className = "content-div";
   } else if (buttonId === 4) {
+    const timeAndDate1 = Object.values(planData[0]);
+    const timeAndDate = timeAndDate1[0].split("/")[1];
     const infoDiv = document.getElementById("info");
     infoDiv.children[0].textContent = "Finishing up";
     infoDiv.children[1].textContent =
@@ -580,7 +582,12 @@ function nevigatePage(e) {
     for (let key in planData[planData.length - 1]) {
       const leftUpperText = document.createElement("p");
       leftUpperText.className = "upper-bold-text";
-      leftUpperText.textContent = `${key} (Monthly)`;
+      if (timeAndDate === "yr") {
+        leftUpperText.textContent = `${key} (Yearly)`;
+      } else {
+        leftUpperText.textContent = `${key} (Monthly)`;
+      }
+
       const leftLowerText = document.createElement("p");
       leftLowerText.className = "upper-small-text";
       leftLowerText.innerHTML = "<u>Change<u/>";
@@ -606,8 +613,7 @@ function nevigatePage(e) {
     billingLower.className = "billing-lower";
     const lowerFirstDiv = document.createElement("div");
     console.log(data, "-------------");
-    const timeAndDate1 = Object.values(planData[0]);
-    const timeAndDate = timeAndDate1[0].split("/")[1];
+
     for (let key in data) {
       lowerFirstDiv.className = "lower-first";
 
