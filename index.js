@@ -113,6 +113,20 @@ function nevigatePage(e) {
     buttonId = parseInt(e.target.id);
     buttonId += 1;
   }
+  if (buttonId === 3) {
+    if (planData.length === 0) {
+      buttonId = 2;
+      const aaa = document.getElementsByTagName("form");
+      aaa[0].removeChild(aaa[0].children[1]);
+      alert("please select a plan");
+    }
+  }
+  if (buttonId === 4) {
+    if (Object.keys(data).length === 0) {
+      buttonId = 3;
+      alert("choose atleat one add ons");
+    }
+  }
   console.log("button id", buttonId);
 
   backButton.value = buttonId;
@@ -450,7 +464,10 @@ function nevigatePage(e) {
     box2.style.color = "var(--white)";
     box2.style.fontWeight = "none";
 
-
+    // const box3 = document.getElementById("box-3");
+    // box3.style.backgroundColor = "var(--light-blue)";
+    // box3.style.color = "var(--marine-blue)";
+    // box3.style.fontWeight = "bold";
     const infoDiv = document.getElementById("info");
     infoDiv.children[0].textContent = " Pick add-ons";
     infoDiv.children[1].textContent =
