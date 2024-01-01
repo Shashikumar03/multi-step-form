@@ -35,7 +35,9 @@ body {
   justify-content: center;
   align-items: center;
 }
-
+.mm {
+  /* border: 2px solid red; */
+}
 .background-image {
   /* border: 2px solid red; */
   width: 100%;
@@ -360,7 +362,7 @@ body {
 
 /* Go back button */
 #decrement-1 {
-  border: 2px solid red;
+  /* border: 2px solid red; */
   border: none;
   background-color: transparent;
   color: var(--cool-gray);
@@ -435,7 +437,7 @@ body {
     border-radius: 0.8rem;
     /* position: relative; */
   }
-  .mm {
+  .sec-main {
     /* border: 2px solid red; */
     width: 100%;
     display: flex;
@@ -554,7 +556,7 @@ body {
     justify-content: center;
     background-color: transparent;
     padding-left: 1rem;
-    /* position: absolute; */
+    position: static;
     /* margin-bottom: 5rem; */
     /* left: 25rem; */
   }
