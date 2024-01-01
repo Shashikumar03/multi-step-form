@@ -71,6 +71,9 @@ body {
   align-items: center;
   color: white;
 }
+.step-1 {
+  display: none;
+}
 .form-background {
   height: auto;
   width: 100%;
@@ -470,6 +473,28 @@ footer {
     top: 2rem;
     left: 2rem;
   }
+  .box1 {
+    /* border: 2px solid red; */
+    display: flex;
+    gap: 1rem;
+  }
+  .step-1 {
+    /* border: 2px solid black; */
+  }
+  .step-1 > p {
+    /* border: 2px solid yellow; */
+    /* padding: 0; */
+    margin: 0;
+  }
+  .step-1-text {
+    font-size: 0.9rem;
+    color: var(--cool-gray);
+  }
+  .step-1-text-bold {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: var(--alabaster);
+  }
   .num-box {
     border: 2px solid white;
     width: 2.3rem;
@@ -480,6 +505,9 @@ footer {
     justify-content: center;
     align-items: center;
     color: white;
+  }
+  .step-1 {
+    display: block;
   }
   .form-background {
     height: auto;

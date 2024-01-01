@@ -33,6 +33,7 @@ function step1() {
   // Create input element for name
   const inputNameElement = document.createElement("input");
   inputNameElement.setAttribute("type", "text");
+  inputNameElement.required = true;
   inputNameElement.setAttribute("class", "form-control");
   inputNameElement.setAttribute("id", "inputName");
   inputNameElement.setAttribute("placeholder", "e.g. Stephen King");
@@ -50,6 +51,7 @@ function step1() {
   // Create input element
   const inputEmailElement = document.createElement("input");
   inputEmailElement.setAttribute("type", "email");
+  inputEmailElement.required = true;
   inputEmailElement.setAttribute("class", "form-control");
   inputEmailElement.setAttribute("id", "inputEmail");
   inputEmailElement.setAttribute("placeholder", "e.g. stephenking@lorem.com");
@@ -67,8 +69,9 @@ function step1() {
 
   // creating input  for phone number
   const inputPhoneElement = document.createElement("input");
-  inputPhoneElement.setAttribute("type", "number");
+  inputPhoneElement.setAttribute("type", "tel");
   inputPhoneElement.setAttribute("class", "form-control");
+  inputPhoneElement.required = true;
   inputPhoneElement.setAttribute("id", "inputNumber");
   inputPhoneElement.setAttribute("placeholder", "e.g. +1 234 567 890");
 
@@ -447,10 +450,7 @@ function nevigatePage(e) {
     box2.style.color = "var(--white)";
     box2.style.fontWeight = "none";
 
-    // const box3 = document.getElementById("box-3");
-    // box3.style.backgroundColor = "var(--light-blue)";
-    // box3.style.color = "var(--marine-blue)";
-    // box3.style.fontWeight = "bold";
+
     const infoDiv = document.getElementById("info");
     infoDiv.children[0].textContent = " Pick add-ons";
     infoDiv.children[1].textContent =
@@ -638,7 +638,7 @@ function nevigatePage(e) {
     totalBillingDiv.appendChild(totalBillDiv);
     formDiv.appendChild(totalBillingDiv);
     if (confirmBtn) {
-      confirmBtn.addEventListener("dblclick", confirmPayment);
+      confirmBtn.addEventListener("click", confirmPayment);
     }
   } else if (buttonId === 1) {
     const parentDiv = document.getElementById("main-form-div");
