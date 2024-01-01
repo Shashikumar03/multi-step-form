@@ -456,8 +456,8 @@ function nevigatePage(e) {
       }
     }
     const mainFormDiv = document.getElementById("main-form-div");
-    console.log(mainFormDiv, "ggggggggggggggggggggggggg");
-    mainFormDiv.style.paddingBottom = "7rem";
+
+    // mainFormDiv.style.paddingBottom = "7rem";
 
     const box2 = document.getElementById("box-2");
     box2.style.backgroundColor = "transparent";
@@ -872,7 +872,7 @@ function confirmPayment(e) {
       itemDiv.appendChild(pTag);
     }
     confirmMainDiv.appendChild(itemDiv);
-    const footer = document.getElementsByTagName("footer");
+    const footer = document.getElementsByClassName("footer");
     footer[0].style.display = "none";
   }
   formDiv[0].appendChild(confirmMainDiv);
