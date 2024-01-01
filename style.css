@@ -871,4 +871,24 @@ footer {
     font-size: 1rem;
     color: var(--cool-gray);
   }
+
+  /* //hover */
+  input[type="text"]:hover {
+    cursor: pointer;
+  }
+  input[type="email"]:hover {
+    cursor: pointer;
+  }
+  input[type="tel"]:hover {
+    cursor: pointer;
+    /* color: var(--white); */
+  }
+  .advanced,
+  .pro,
+  .arcade:hover {
+    cursor: pointer;
+  }
+  .upper-small-text:hover {
+    cursor: pointer;
+  }
 }
