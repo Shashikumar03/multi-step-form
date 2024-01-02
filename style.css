@@ -414,6 +414,10 @@ body {
   font-size: 1rem;
   color: var(--cool-gray);
 }
+.form-check-input:checked {
+  background-color: var(--marine-blue);
+  border-color: var(--marine-blue);
+}
 
 @media only screen and (min-width: 800px) {
   main {
@@ -898,7 +902,7 @@ body {
   .arcade:hover {
     cursor: pointer;
   }
-  .upper-small-text:hover {
-    cursor: pointer;
+  .toggle-child:checked {
+    background-color: red;
   }
 }
